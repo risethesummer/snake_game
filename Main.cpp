@@ -1,1 +1,0 @@
-﻿//Viết hàm vào file riêng của mình trước
