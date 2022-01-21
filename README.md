@@ -1,1 +1,2 @@
 # snake_group_1_ktlt
+https://drive.google.com/drive/folders/1HVGvzYLCHqWG9mDu_jcaTl2LV9vwXIuZ?fbclid=IwAR3X91vvzw8Njv8v_61XCjPvk39ujSMijqRJgyKsUD_BCigt-jjH5UAgyKI
