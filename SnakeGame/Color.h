@@ -1,0 +1,23 @@
+#ifndef COLOR_H
+#define COLOR_H
+
+#define BLACK_BLACK 0
+#define WHITEGRAY_WHITEGRAY 119
+#define GRAY_GRAY 136
+#define GREEN_GREEN 34
+#define RED_RED 68
+#define YELLOW_YELLOW 102
+#define WHITE_BLACK 240
+#define WHITE_BLUE 243
+#define WHITE_RED 244
+#define WHITE_YELLOW 246
+#define WHITE_LIGHTGRAY 247
+#define WHITE_GRAY 248
+#define WHITE_GREEN 250
+#define WHITE_LIGHTBLUE 251
+#define WHITE_ORANGE 252
+#define WHITE_PURPLE 253
+#define WHITE_WHITE 255
+#define DEFAULT 255
+
+#endif
