@@ -61,12 +61,18 @@ void print(const Point& point, const T& content, const int& color, const int& re
 }
 
 
-
 /**
  * Draw an object at the top left anchor.
  * @param component The component drawn on the console screen
  */
 void draw(const UIComponent& component);
+
+/**
+ * Draw an object at the top left anchor and get every coordinate of the object.
+ * @param component The component drawn on the console screen
+ * @return every coordinate which the object is drawn on
+ */
+vector<Point> drawAndGetPoints(const UIComponent& component);
 
 /**
  * Draw an rectangle object starting at the top left anchor (used for deleting an area on screen)

@@ -13,8 +13,8 @@ void mainTest()
 {
 	UIComponent* board = loadComponent("board_level_1.txt");
 	fixConsoleWindow();
-	draw(*board);
-	Point a = { 20, 20 };
-	print(a, "19127652", WHITE_RED);
+	//Used for detecting death
+	vector<Point> ps = drawAndGetPoints(*board);
+	print({ 20, 20 }, "19127652", WHITE_RED);
 	delete board;
 }

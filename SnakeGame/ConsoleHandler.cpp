@@ -34,30 +34,6 @@ void setTextColor(const int& color)
 	SetConsoleTextAttribute(hConsole, color);
 }
 
-/*
-template <class T>
-void print(const Point& point, T content)
-{
-	jump(point);
-	std::cout << content;
-}
-
-template <class T>
-void print(const Point& point, T content, const int& color)
-{
-	setTextColor(color);
-	print(point, content);
-}
-
-template <class T>
-void print(const Point& point, T content, const int& color, const int& recoverColor)
-{
-	setTextColor(color);
-	print(point, content);
-	setTextColor(recoverColor);
-}
-*/
-
 void draw(const UIComponent& component)
 {
 	Point clone(component.anchor);
@@ -79,6 +55,35 @@ void draw(const UIComponent& component)
 		clone.x = component.anchor.x;
 		jump(clone);
 	}
+}
+
+vector<Point> drawAndGetPoints(const UIComponent& component)
+{
+	vector<Point> points;
+	Point clone(component.anchor);
+	jump(clone);
+	setTextColor(component.color);
+	for (const string& current : component.content)
+	{
+		for (int i = 0; i < current.length(); i++)
+		{
+			//Jump the next char
+			clone.x += 1;
+			//If not space -> drawing
+			if (!isspace(current[i]))
+			{
+				cout << current[i];
+				//Get the drawn point
+				points.push_back(Point{ short(clone.x - 1), clone.y });
+			}
+			else
+				jump(clone); //Jump to next if not a char
+		}
+		clone.y += 1;
+		clone.x = component.anchor.x;
+		jump(clone);
+	}
+	return points;
 }
 
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color)
