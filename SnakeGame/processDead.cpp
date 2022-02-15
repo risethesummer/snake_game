@@ -11,3 +11,10 @@ void ProcessDead() {
 	}
 	else StartGame();
 }
+void StartGame() {
+	system("cls");
+	ResetData(); // Khởi tạo dữ liệu gốc
+	DrawBoard(0, 0, WIDTH_CONSOLE, HEIGH_CONSOLE);
+	display();
+	STATE = 1;
+}
