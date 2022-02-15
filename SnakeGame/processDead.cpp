@@ -18,3 +18,12 @@ void StartGame() {
 	display();
 	STATE = 1;
 }
+void ResetData() {
+	//Defaut values
+	CHAR_LOCK = 'A', MOVING = 'D', SPEED = 1; FOOD_INDEX = 1, WIDTH_CONSOLE = 70,
+		HEIGH_CONSOLE = 20, SIZE_SNAKE = 1; COUNT = 0;
+
+	//Default snake values
+	snake[0] = { 10, 5 };
+	GenerateFood();//ham food cua Thuan
+}
