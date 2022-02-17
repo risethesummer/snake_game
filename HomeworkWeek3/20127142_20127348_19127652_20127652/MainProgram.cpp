@@ -18,7 +18,14 @@ void Exercise1()
 //Bai 2
 void Exercise2()
 {
-
+	int ** arr = nullptr;
+	int n = 0;
+	cout << "Bai 2: Mang 2 chieu/n";
+	InputMatrix(arr, n);
+	cout << "Thong tin mang vua nhap la/n";
+	PrintMatrix(arr, n);
+	FreeMatrix(arr, n);
+	
 }
 
 int main()
