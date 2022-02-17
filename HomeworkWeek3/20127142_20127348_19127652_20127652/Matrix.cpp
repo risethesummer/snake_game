@@ -46,5 +46,7 @@ void PrintMatrix(int** matrix, int n)
 
 void FreeMatrix(int** matrix, int n)
 {
-
+	for(int i = 0; i<m; i++)
+  		 delete []matrix[i];
+	delete []matrix;
 }
