@@ -1,6 +1,9 @@
 void InputArray_1D(int*& a, int& n)
 {
   a = new int[n];
+  for(int i=0; i<n; i++){
+	  cin>>*a[i];
+	  cout<<endl;
 }
 
 void FreeArray(int*& a)
