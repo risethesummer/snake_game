@@ -2,8 +2,9 @@
 #include"gotoxy.h"
 
 
-
-bool checkFood(int x, int y) {// kiểm tra đồ ăn có trùng với thân rắn
+bool checkFood(int x, int y) 
+{
+	// kiểm tra đồ ăn có trùng với thân rắn
 	for (int i = 0; i < SIZE_SNAKE; i++) {
 		if (Snake[i].x == x && Snake[i].y == y) {
 			return true;
@@ -12,7 +13,14 @@ bool checkFood(int x, int y) {// kiểm tra đồ ăn có trùng với thân r�
 	return false;
 }
 
-void createFood() {//tạo đồ ăn ngẫu nhiên
+bool checkFood(const vector<Point>& snake, const Point& food)
+{
+	return false;
+}
+
+void createFood() 
+{
+	//tạo đồ ăn ngẫu nhiên
 	srand(time(NULL));
 	do {
 		X_FOOD = rand() % (WIDTH_CONSOLE - 1) + 1;
@@ -20,16 +28,28 @@ void createFood() {//tạo đồ ăn ngẫu nhiên
 	} while (checkFood);
 }
 
+Point createFood(const vector<Point>& snake, const Point& topLeft, const Point& bottomRight)
+{
+	return Point();
+}
+
 void drawFood() {//vẽ đồ ăn
 	gotoxy(X_FOOD, Y_FOOD);
 	cout << "0";
+}
+
+bool checkEatFood(const vector<Point>& snake, const Point& food)
+{
+	return false;
 }
 
 bool checkEatFood() {//kiểm tra rắn có ăn hay không. Có trả về true, không trả về false
 	return (Snake[0].x == X_FOOD, Snake[0].y == Y_FOOD);
 }
 
-void processEat() {//sau khi ăn đồ ăn
+void processEat() 
+{
+	//sau khi ăn đồ ăn
 	if (checkEatFood()) {
 		//thêm đốt cho rắn
 		SIZE_SNAKE++;

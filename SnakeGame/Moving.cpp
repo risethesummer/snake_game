@@ -1,4 +1,5 @@
-void MoveRight() {
+void MoveRight() 
+{
 		if (snake[SIZE_SNAKE - 1].x + 1 == WIDTH_CONSOLE) {
 				ProcessDead();
 		}
@@ -49,7 +50,8 @@ void MoveRight() {
 	 }
  }
 
- void MoveUp() {
+ void MoveUp() 
+ {
 		  if (snake[SIZE_SNAKE - 1].y - 1 == 0) {
 			  ProcessDead();
 		  }
