@@ -30,13 +30,13 @@
     <ClCompile Include="Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="food.cpp">
+    <ClCompile Include="Food.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Moving.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="processDead.cpp">
+    <ClCompile Include="ProcessDead.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,10 +56,16 @@
     <ClInclude Include="UIComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="food.h">
+    <ClInclude Include="Food.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Moving.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessDead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
