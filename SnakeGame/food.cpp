@@ -15,6 +15,11 @@ bool checkFood(int x, int y)
 
 bool checkFood(const vector<Point>& snake, const Point& food)
 {
+	for (int i = 0; i < SIZE_SNAKE; i++) {
+		if (snake[i].x == food.x && snake[i].y == food.y) {
+			return true;
+		}
+	}
 	return false;
 }
 
@@ -30,7 +35,14 @@ void createFood()
 
 Point createFood(const vector<Point>& snake, const Point& topLeft, const Point& bottomRight)
 {
-	return Point();
+	srand(time(NULL));
+	Point food;
+	do {
+			
+		X_FOOD = rand() % (bottomRight.x - topLeft.x) + topLeft.x;
+		Y_FOOD = rand() % (bottomRight.y - topLeft.y) + topLeft.y;
+	} while (checkFood(snake, Point(X_FOOD, Y_FOOD));
+	return Point(X_FOOD, Y_FOOD);
 }
 
 void drawFood() {//vẽ đồ ăn
@@ -40,6 +52,9 @@ void drawFood() {//vẽ đồ ăn
 
 bool checkEatFood(const vector<Point>& snake, const Point& food)
 {
+	if(snake[0].x == food.x && snake[0].y == food.y) {
+		return true;
+	}
 	return false;
 }
 
