@@ -15,8 +15,8 @@ struct Array2D
 
 int countRow(void** aData);
 int countColumn(void** aData);
-void freeArr(void** aData);
-void allocArr(void*** a, int m, int n, int sz);
+void free2D(void** aData);
+void alloc2D(void*** a, int m, int n, int sz);
 void arr2DInput(void** aData);
 void arr2DOutput(void** aData);
 

@@ -3,9 +3,9 @@
 int main()
 {
 	Fraction** f = NULL;
-	allocArr((void***)&f, 2, 3, sizeof(Fraction));
+	alloc2D((void***)&f, 2, 3, sizeof(Fraction));
 	arr2DInput((void**)f);
 	arr2DOutput((void**)f);
-	freeArr((void**)f);
+	free2D((void**)f);
 	return 1;
 }

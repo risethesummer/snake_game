@@ -18,7 +18,7 @@ int countColumn(void** aData)
 	return 0;
 }
 
-void freeArr(void** aData)
+void free2D(void** aData)
 {
 	if (aData != NULL) {
 		void* p = (char*)aData - HEAD_SIZE;
@@ -26,7 +26,7 @@ void freeArr(void** aData)
 	}
 }
 
-void allocArr(void*** a, int m, int n, int sz)
+void alloc2D(void*** a, int m, int n, int sz)
 {
 	if (m <= 0 || n <= 0 || sz <= 0) 
 		return;
