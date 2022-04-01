@@ -22,5 +22,9 @@ struct Point
 istream& operator>>(istream& stream, Point& point);
 bool operator==(const Point& a, const Point& b);
 bool operator!=(const Point& a, const Point& b);
+Point operator+(const Point& a, const Point& b);
+Point operator-(const Point& a, const Point& b);
+Point& operator+=(Point& a, const Point& b);
+Point getUnitVector(const Point& a);
 
 #endif

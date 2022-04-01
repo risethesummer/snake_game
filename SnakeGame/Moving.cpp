@@ -1,71 +1,30 @@
-void MoveRight(vector<Point>&snake) 
+#include "Moving.h"
+
+Point getAddition(const Direction& dir)
 {
-		if (snake[SIZE_SNAKE - 1].x + 1 == WIDTH_CONSOLE) {
-				ProcessDead();
-		}
-	
-		else {
-				if (snake[SIZE_SNAKE - 1].x + 1 == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y == food[FOOD_INDEX].y) {
-						processEat();
-				}
-				for (int i = 0; i < SIZE_SNAKE - 1; i++) {
-					snake[i].x = snake[i + 1].x;
-					snake[i].y = snake[i + 1].y;
-				}
-			 snake[SIZE_SNAKE - 1].x++;
-		}
+	Point addition;
+	switch (dir)
+	{
+	case UP:
+		addition.y -= 1;
+		break;
+	case DOWN:
+		addition.y += 1;
+		break;
+	case LEFT:
+		addition.x -= 1;
+		break;
+	case RIGHT:
+		addition.x += 1;
+		break;
+	default:
+		break;
+	}
+	return addition;
 }
 
- void MoveLeft(vector<Point>&snake) {
-	 if (snake[SIZE_SNAKE - 1].x - 1 == 0) {
-		 ProcessDead();
-	 }
-	 else {
-		  if (snake[SIZE_SNAKE - 1].x - 1 == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y == food[FOOD_INDEX].y) 
-		  {
-			  processEat();
-		  }
-		  for (int i = 0; i < SIZE_SNAKE - 1; i++) {
-			  snake[i].x = snake[i + 1].x;
-			  snake[i].y = snake[i + 1].y;
-		 }
-		  snake[SIZE_SNAKE - 1].x--;
-	 }
- }
- 
- void MoveDown(vector<Point>&snake) {
-	 if (snake[SIZE_SNAKE - 1].y + 1 == HEIGH_CONSOLE) {
-		 ProcessDead();
-	 }
-	 else {
-		 if (snake[SIZE_SNAKE - 1].x == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y + 1 == food[FOOD_INDEX].y)
-		 {
-			 processEat()();
-		 }
-		 for (int i = 0; i < SIZE_SNAKE - 1; i++) {
-			 snake[i].x = snake[i + 1].x;
-			 snake[i].y = snake[i + 1].y;
-		 }
-		 snake[SIZE_SNAKE - 1].y++;
-	 }
- }
-
- void MoveUp(vector<Point>&snake) 
- {
-		  if (snake[SIZE_SNAKE - 1].y - 1 == 0) {
-			  ProcessDead();
-		  }
-		  else {
-			  if (snake[SIZE_SNAKE - 1].x == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y - 1 == food[FOOD_INDEX].y)
-			  {
-				  processEat();
-			  }
-			  for (int i = 0; i < SIZE_SNAKE - 1; i++) {
-				  snake[i].x = snake[i + 1].x;
-				  snake[i].y = snake[i + 1].y;
-			  }
-			  snake[SIZE_SNAKE - 1].y--;
-		  }
- }
-	 
-	
+void move(vector<Point>& snake, const Direction& dir)
+{
+	snake.pop_back();
+	snake.insert(snake.begin(), snake[0] + getAddition(dir));
+}
