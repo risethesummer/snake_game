@@ -1,36 +1,39 @@
 #include "ProcessDead.h"
 
 
-bool isTouchWall(const vector<Point>& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor)
+bool isTouchWall(const Snake& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor)
 {
-	return (snake[0].x >= topLeftAnchor.x && snake[0].x <= bottomRightAnchor.x) && (snake[0].y >= topLeftAnchor.y && snake[0].y <= bottomRightAnchor.y);
+	Point& headPos = snake.head->position;
+	return (headPos.x >= topLeftAnchor.x && headPos.x <= bottomRightAnchor.x) && (headPos.y >= topLeftAnchor.y && headPos.y <= bottomRightAnchor.y);
 
 }
 
-bool isSelfBite(const vector<Point>& snake)
+bool isSelfBite(const Snake& snake)
 {
-	for (int i = 1; i < snake.size(); i++) {
-		if (snake[0] == snake[i])
+	Point& headPos = snake.head->position;
+	for (Node* current = snake.head->next; current; current = current->next) {
+		if (current->position == headPos)
 			return true;
 	}
 	return false;
 
 }
 
-bool isCollideWithObtacles(const vector<Point>& snake, const vector<vector<Point>>& obtacles)
+bool isCollideWithObtacles(const Snake& snake, const vector<vector<Point>>& obtacles)
 {
+	Point& headPos = snake.head->position;
 	for (vector<Point> obtacle : obtacles)
 	{
 		for (Point p : obtacle)
 		{
-			if (p == snake[0])
+			if (p == headPos)
 				return true;
 		}
 	}
 	return false;
 }
 
-bool isDead(const vector<Point>& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor, const vector<vector<Point>>& obtacles)
+bool isDead(const Snake& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor, const vector<vector<Point>>& obtacles)
 {
 	return isTouchWall(snake, topLeftAnchor, bottomRightAnchor)
 		|| isSelfBite(snake)

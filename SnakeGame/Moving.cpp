@@ -23,8 +23,8 @@ Point getAddition(const Direction& dir)
 	return addition;
 }
 
-void move(vector<Point>& snake, const Direction& dir)
+void move(Snake& snake, const Direction& dir)
 {
-	snake.pop_back();
-	snake.insert(snake.begin(), snake[0] + getAddition(dir));
+	removeLast(snake);
+	addHead(snake, snake.head->position + getAddition(dir));
 }

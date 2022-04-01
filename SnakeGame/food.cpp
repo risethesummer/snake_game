@@ -1,16 +1,16 @@
 ﻿#include"food.h"
 
 
-bool checkFood(const vector<Point>& snake, const Point& food)
+bool checkFood(const Snake& snake, const Point& food)
 {
-	for (int i = 0; i < snake.size(); i++) {
-		if (snake[i] == food)
+	for (Node* current = snake.head; current; current = current->next) {
+		if (current->position == food)
 			return true;
 	}
 	return false;
 }
 
-Point createFood(const vector<Point>& snake, const Point& topLeft, const Point& bottomRight)
+Point createFood(const Snake& snake, const Point& topLeft, const Point& bottomRight)
 {
 	srand(time(NULL));
 	Point food;
@@ -22,7 +22,7 @@ Point createFood(const vector<Point>& snake, const Point& topLeft, const Point& 
 	return food;
 }
 
-bool checkEatFood(const vector<Point>& snake, const Point& food)
+bool checkEatFood(const Snake& snake, const Point& food)
 {
-	return snake[0] == food;
+	return snake.head->position == food;
 }

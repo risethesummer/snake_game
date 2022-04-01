@@ -3,11 +3,12 @@
 #include<iostream>
 #include "Point.h"
 #include <vector>
+#include "Snake.h"
 #include<time.h>
 using namespace std;
 
-bool checkFood(const vector<Point>& snake, const Point& food);
-Point createFood(const vector<Point>& snake, const Point& topLeft, const Point& bottomRight);
-bool checkEatFood(const vector<Point>& snake, const Point& food);
+bool checkFood(const Snake& snake, const Point& food);
+Point createFood(const Snake& snake, const Point& topLeft, const Point& bottomRight);
+bool checkEatFood(const Snake& snake, const Point& food);
 
 #endif

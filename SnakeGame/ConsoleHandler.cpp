@@ -65,14 +65,14 @@ vector<Point> drawAndGetPoints(const UIComponent& component)
 	setTextColor(component.color);
 	for (const string& current : component.content)
 	{
-		for (int i = 0; i < current.length(); i++)
+		for (const char& c : current)
 		{
 			//Jump the next char
 			clone.x += 1;
 			//If not space -> drawing
-			if (!isspace(current[i]))
+			if (!isspace(c))
 			{
-				cout << current[i];
+				cout << c;
 				//Get the drawn point
 				points.push_back(Point{ short(clone.x - 1), clone.y });
 			}
