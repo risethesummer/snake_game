@@ -4,12 +4,10 @@
 #include "Point.h"
 using namespace std;
 
-//Determine the snake touches the wall or its body
-//Head is the first element
-//------------
-//-			 -
-//-			 -
-//------------
-bool ProcessDead(const vector<Point> snake, const Point& topLeftAnchor, const Point& bottomRightAnchor);
+bool isTouchWall(const vector<Point>& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor);
+bool isSelfBite(const vector<Point>& snake);
+bool isCollideWithObtacles(const vector<Point>& snake, const vector<vector<Point>>& obtacles);
+bool isDead(const vector<Point>& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor,
+	const vector<vector<Point>>& obtacles);
 
 #endif

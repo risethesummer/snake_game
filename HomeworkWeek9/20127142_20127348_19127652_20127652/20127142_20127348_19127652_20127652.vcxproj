@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{a312c492-48e9-464d-b55e-b249539da645}</ProjectGuid>
-    <RootNamespace>SnakeGame</RootNamespace>
+    <ProjectGuid>{4f2f6603-9501-4337-b065-4d65db681820}</ProjectGuid>
+    <RootNamespace>My20127142201273481912765220127652</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,29 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleHandler.cpp" />
-    <ClCompile Include="Food.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Moving.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="ProcessDead.cpp" />
-    <ClCompile Include="StringUtilities.cpp" />
-    <ClCompile Include="UIComponent.cpp" />
+    <ClInclude Include="List.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="ConsoleHandler.h" />
-    <ClInclude Include="Direction.h" />
-    <ClInclude Include="EffectFactory.h" />
-    <ClInclude Include="Food.h" />
-    <ClInclude Include="Moving.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="ProcessDead.h" />
-    <ClInclude Include="StringUtilities.h" />
-    <ClInclude Include="UIComponent.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="board_level_1.txt" />
+    <ClCompile Include="List.cpp" />
+    <ClCompile Include="MainProgram.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

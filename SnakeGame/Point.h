@@ -20,5 +20,7 @@ struct Point
 * @param the stream used to load the point
 */
 istream& operator>>(istream& stream, Point& point);
+bool operator==(const Point& a, const Point& b);
+bool operator!=(const Point& a, const Point& b);
 
 #endif
