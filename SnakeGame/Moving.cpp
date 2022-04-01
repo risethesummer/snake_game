@@ -6,7 +6,7 @@ void MoveRight()
 	
 		else {
 				if (snake[SIZE_SNAKE - 1].x + 1 == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y == food[FOOD_INDEX].y) {
-						Eat();
+						processEat();
 				}
 				for (int i = 0; i < SIZE_SNAKE - 1; i++) {
 					snake[i].x = snake[i + 1].x;
@@ -23,7 +23,7 @@ void MoveRight()
 	 else {
 		  if (snake[SIZE_SNAKE - 1].x - 1 == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y == food[FOOD_INDEX].y) 
 		  {
-			  Eat();
+			  processEat();
 		  }
 		  for (int i = 0; i < SIZE_SNAKE - 1; i++) {
 			  snake[i].x = snake[i + 1].x;
@@ -40,7 +40,7 @@ void MoveRight()
 	 else {
 		 if (snake[SIZE_SNAKE - 1].x == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y + 1 == food[FOOD_INDEX].y)
 		 {
-			 Eat();
+			 processEat()();
 		 }
 		 for (int i = 0; i < SIZE_SNAKE - 1; i++) {
 			 snake[i].x = snake[i + 1].x;
@@ -58,7 +58,7 @@ void MoveRight()
 		  else {
 			  if (snake[SIZE_SNAKE - 1].x == food[FOOD_INDEX].x && snake[SIZE_SNAKE - 1].y - 1 == food[FOOD_INDEX].y)
 			  {
-				  Eat();
+				  processEat();
 			  }
 			  for (int i = 0; i < SIZE_SNAKE - 1; i++) {
 				  snake[i].x = snake[i + 1].x;
