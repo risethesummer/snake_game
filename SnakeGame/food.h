@@ -7,6 +7,7 @@
 #include<time.h>
 using namespace std;
 
+
 bool checkFood(const Snake& snake, const Point& food);
 Point createFood(const Snake& snake, const Point& topLeft, const Point& bottomRight);
 bool checkEatFood(const Snake& snake, const Point& food);

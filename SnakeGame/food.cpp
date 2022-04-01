@@ -19,6 +19,7 @@ Point createFood(const Snake& snake, const Point& topLeft, const Point& bottomRi
 		food.x = rand() % (bottomRight.x - topLeft.x) + topLeft.x;
 		food.y = rand() % (bottomRight.y - topLeft.y) + topLeft.y;
 	} while (checkFood(snake, food));
+	print(food, '*', RED_RED);
 	return food;
 }
 
