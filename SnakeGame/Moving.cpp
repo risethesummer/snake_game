@@ -1,4 +1,4 @@
-void MoveRight() 
+void MoveRight(vector<Point>&snake) 
 {
 		if (snake[SIZE_SNAKE - 1].x + 1 == WIDTH_CONSOLE) {
 				ProcessDead();
@@ -16,7 +16,7 @@ void MoveRight()
 		}
 }
 
- void MoveLeft() {
+ void MoveLeft(vector<Point>&snake) {
 	 if (snake[SIZE_SNAKE - 1].x - 1 == 0) {
 		 ProcessDead();
 	 }
@@ -33,7 +33,7 @@ void MoveRight()
 	 }
  }
  
- void MoveDown() {
+ void MoveDown(vector<Point>&snake) {
 	 if (snake[SIZE_SNAKE - 1].y + 1 == HEIGH_CONSOLE) {
 		 ProcessDead();
 	 }
@@ -50,7 +50,7 @@ void MoveRight()
 	 }
  }
 
- void MoveUp() 
+ void MoveUp(vector<Point>&snake) 
  {
 		  if (snake[SIZE_SNAKE - 1].y - 1 == 0) {
 			  ProcessDead();
