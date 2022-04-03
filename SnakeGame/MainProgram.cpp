@@ -4,6 +4,7 @@
 #include "Snake.h"
 #include "Moving.h"
 #include "Food.h"
+#include <Windows.h>
 #include <thread>
 #include <string.h>
 #define NAMES "19127652"
@@ -60,7 +61,7 @@ void startGame() {
 	int speed = 1;
 	Snake snake;
 	Point middle = { 20, 20 };
-	thread t1(getAddition(lockDirection));
+	thread t1(move(snake, lockDirection));
 	HANDLE handle_t1 = t1.native_handle();
 	getUserInput(handle_t1, lockDirection);
 	//Bat dau man (for loop)
