@@ -7,7 +7,7 @@
 #include "ConsoleHandler.h"
 using namespace std;
 
-Point getAddition(const Direction& dir);
-void move(Snake& snake, const Direction& dir);
+Point getAddition(Direction dir);
+void moveSnake(Snake snake, Direction dir);
 
 #endif
