@@ -5,14 +5,13 @@ using namespace std;
 
 bool compareAGreaterB(int a, int b)
 {
-	return a < b;
+	return a > b;
 }
 
 bool compareALessB(int a, int b)
 {
-	return a > b;
+	return a < b;
 }
-
 
 int main()
 {

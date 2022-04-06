@@ -11,7 +11,6 @@ Node* getNode(int data)
 }
 
 
-
 void makeOrderedList(Node*& head, int k, bool(*compare)(int, int)) {
 	Node* p = getNode(k);
 	if (!head)
@@ -19,9 +18,7 @@ void makeOrderedList(Node*& head, int k, bool(*compare)(int, int)) {
 		head = p;
 		return;
 	}
-	//0 -> 1 ->  2 3
-	//1 2
-	if (!compare(head->data, k))
+	if (compare(head->data, k))
 	{
 		p->next = head;
 		head = p;
@@ -29,12 +26,17 @@ void makeOrderedList(Node*& head, int k, bool(*compare)(int, int)) {
 	}
 
 	Node* before = head;
-	for (Node* current = head->next; current; current = current->next)
+	for (Node* current = head; current; current = current->next)
 	{
 		if (compare(current->data, k))
 		{
 			before->next = p;
 			p->next = current;
+			return;
+		}
+		if (current->next == nullptr) //tail node
+		{
+			current->next = p;
 			return;
 		}
 		before = current;
