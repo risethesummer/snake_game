@@ -1,6 +1,6 @@
 #include "Moving.h"
 
-Point getAddition(const Direction& dir)
+Point getAddition(Direction dir)
 {
 	Point addition;
 	switch (dir)
@@ -23,7 +23,7 @@ Point getAddition(const Direction& dir)
 	return addition;
 }
 
-void move(Snake& snake, const Direction& dir)
+void moveSnake(Snake snake, Direction dir)
 {
 	removeLast(snake);
 	addHead(snake, snake.head->position + getAddition(dir));
