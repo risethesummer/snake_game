@@ -3,6 +3,8 @@
 #include <vector>
 #include "Snake.h"
 #include "Point.h"
+#include <windows.h>
+#include <mmsystem.h>
 using namespace std;
 
 void deadEffect(const Snake& snake);
