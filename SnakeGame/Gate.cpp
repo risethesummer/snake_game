@@ -2,12 +2,13 @@
 
 bool checkGate(const Snake& snake, const Point& gate)//x, y
 {
-  for (Node* current = snake.head; current; current = current->next) {
-	Point gate;
-	if (current->position == gate){
-		return true;
+	for (Node* current = snake.head; current; current = current->next) {
+		Point gate;
+		if (current->position == gate) {
+			return true;
+		}
+		return false;
 	}
-	return false;
 }
 
 Point createAndDrawGate(const Snake& snake, int topLeft, int bottomRight)

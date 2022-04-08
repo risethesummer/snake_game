@@ -22,12 +22,18 @@ void gameProcessing(int level, int score, const Direction& lockDirection, const 
 		}
 		UIComponent board = loadComponent(boardPath + to_string(level) + ".txt");
 		Point* gate = nullptr;
-		Point bottomRight = board.anchor + Point{ (short)board.content[0].length(), (short)board.content.size() };
+		Point bottomRight = board.anchor + Point{ (short)(board.content[0].length() - 1), (short)(board.content.size() - 1) };
 		vector<Point> obtacles = drawAndGetPoints(board);
 		Point food = createFood(snake, obtacles, board.anchor, bottomRight);
 		//Used for detecting death
 		while (!isEnded)
 		{
+			if (isPaused)
+			{
+				pauseGameMutex.lock();
+				pauseGameMutex.unlock();
+			}
+
 			print(snake.tail->position, '*', WHITE_WHITE);
 			moveSnake(snake, lockDirection);
 			drawSnake(snake, NAMES, 8);
@@ -38,24 +44,18 @@ void gameProcessing(int level, int score, const Direction& lockDirection, const 
 			//Tang toc do
 			if (checkEatFood(snake, food))
 			{
-				if (++score == NUM_FOOD_EACH_ROUND)
+				if (score + 1 == NUM_FOOD_EACH_ROUND)
 				{
-
+					int a = 5;
 				}
 				else
 				{
+					score++;
 					drawArea(removeScoreStart, removeScoreEnd, WHITE_WHITE);
 					draw(numberPath + to_string(score) + ".txt", { 3, 7 });
 					createFood(snake, obtacles, board.anchor, bottomRight);
 				}
 			}
-
-			if (isPaused)
-			{
-				pauseGameMutex.lock();
-				pauseGameMutex.unlock();
-			}
-
 			this_thread::sleep_for(std::chrono::milliseconds(SPEED_ECO / speed));
 		}
 		freeSnake(snake);
