@@ -141,10 +141,13 @@
   <ItemGroup>
     <ClCompile Include="ConsoleHandler.cpp" />
     <ClCompile Include="Direction.cpp" />
+    <ClCompile Include="EffectFactory.cpp" />
     <ClCompile Include="Food.cpp" />
     <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="Gate.cpp" />
     <ClCompile Include="GetUserInput.cpp" />
     <ClCompile Include="MainProgram.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Moving.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="ProcessDead.cpp" />
@@ -162,6 +165,7 @@
     <ClInclude Include="Gate.h" />
     <ClInclude Include="GetUserInput.h" />
     <ClInclude Include="KeyMapping.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Moving.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProcessDead.h" />
@@ -181,6 +185,10 @@
     <Text Include="resources\numbers\number_3.txt" />
     <Text Include="resources\numbers\number_4.txt" />
     <Text Include="resources\numbers\number_5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\deathSoundEffect.wav" />
+    <Media Include="resources\sounds\passEffect.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

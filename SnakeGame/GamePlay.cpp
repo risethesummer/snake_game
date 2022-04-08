@@ -2,24 +2,35 @@
 mutex pauseGameMutex;
 
 
-void gameProcessing(int level, int score, const Direction& lockDirection, const bool& isPaused, bool& isEnded)
+void gameProcessing(int level, int score, const vector<Point>& positions, const Direction& lockDirection, const bool& isPaused, bool& isEnded)
 {
 	bool isAlive = true;
 	int speed = 1;
 	Snake snake;
-	Point middle = { 25, 20 };
+
+	if (positions.size() > 0)
+	{
+		Point middle = { 3, 23 };
+		int len = 6 + (level - 1) * NUM_FOOD_EACH_ROUND + score;
+		//Bat dau man (for loop)
+		for (int i = 0; i < len; i++)
+		{
+			addHead(snake, middle);
+			middle.x++;
+		}
+	}
+	else
+	{
+		for (const Point& p : positions)
+			addLast(snake, p);
+	}
+
 	draw(guidePath);
 	draw(numberPath + to_string(level) + ".txt");
 	draw(numberPath + to_string(score) + ".txt", { 3, 7 });
 
 	for (level; level < MAX_LEVEL; level++)
 	{
-		//Bat dau man (for loop)
-		for (int i = 0; i < 8; i++)
-		{
-			addLast(snake, middle);
-			middle.x--;
-		}
 		UIComponent board = loadComponent(boardPath + to_string(level) + ".txt");
 		Point* gate = nullptr;
 		Point bottomRight = board.anchor + Point{ (short)(board.content[0].length() - 1), (short)(board.content.size() - 1) };
@@ -34,9 +45,22 @@ void gameProcessing(int level, int score, const Direction& lockDirection, const 
 				pauseGameMutex.unlock();
 			}
 
+			//this_thread::sleep_for(std::chrono::milliseconds(10000));
 			print(snake.tail->position, '*', WHITE_WHITE);
 			moveSnake(snake, lockDirection);
 			drawSnake(snake, NAMES, 8);
+
+			if (gate)
+			{
+				if (snake.head->position == *gate)
+				{
+					passGateEffect(snake);
+					drawArea(board.anchor, bottomRight, WHITE_WHITE, 10);
+					delete gate;
+					gate = nullptr;
+					break;
+				}
+			}
 			//Neu ma co cong -> check
 			//An cong -> qua man
 			//Xoa di tat ca
@@ -45,9 +69,7 @@ void gameProcessing(int level, int score, const Direction& lockDirection, const 
 			if (checkEatFood(snake, food))
 			{
 				if (score + 1 == NUM_FOOD_EACH_ROUND)
-				{
-					int a = 5;
-				}
+					gate = createAndDrawGate(snake, obtacles, board.anchor, bottomRight);
 				else
 				{
 					score++;
@@ -57,17 +79,18 @@ void gameProcessing(int level, int score, const Direction& lockDirection, const 
 				}
 			}
 			this_thread::sleep_for(std::chrono::milliseconds(SPEED_ECO / speed));
+			//this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 		freeSnake(snake);
 	}
 }
 
-void startGame(int level, int score)
+void startGame(int level, int score, const vector<Point>& positions, const Direction& lockDirection)
 {
-	Direction direction = RIGHT;
+	Direction direction = lockDirection;
 	bool isEnded = false;
 	bool isPause = false;
-	thread gameThread(gameProcessing, level, score, cref(direction), cref(isPause), ref(isEnded)); //Create thread for snake
+	thread gameThread(gameProcessing, level, score, cref(positions),cref(direction), cref(isPause), ref(isEnded)); //Create thread for snake
 	HANDLE handleThread = gameThread.native_handle();
 	userGameInput(direction, isPause, isEnded);
 	gameThread.join();

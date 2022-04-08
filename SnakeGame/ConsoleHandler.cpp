@@ -1,5 +1,6 @@
 #include "ConsoleHandler.h"
 #include "StringUtilities.h"
+#include <mutex>
 
 void fixConsoleWindow()
 {
@@ -101,7 +102,7 @@ vector<Point> drawAndGetPoints(const UIComponent& component)
 	return points;
 }
 
-void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color)
+void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miniDelay)
 {
 	setTextColor(color);
 	string line = GetCharString(endAnchor.x - startAnchor.x + 4, '*');
@@ -109,5 +110,7 @@ void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color
 	{
 		jump(Point{ short(startAnchor.x - 1), short(startAnchor.y + r - 1) });
 		cout << line;
+		if (miniDelay > 0)
+			this_thread::sleep_for(std::chrono::milliseconds(miniDelay));
 	}
 }

@@ -22,6 +22,9 @@
     <Filter Include="Resource Files\numbers">
       <UniqueIdentifier>{8b5b60a6-2dd7-406f-82fd-82cd5346da6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\sounds">
+      <UniqueIdentifier>{a44155ee-6bba-4c26-b73f-ecbea7d4a04c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainProgram.cpp">
@@ -58,6 +61,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Direction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,6 +119,9 @@
     <ClInclude Include="GetUserInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\boards\board_level_1.txt">
@@ -142,5 +157,13 @@
     <Text Include="resources\numbers\number_0.txt">
       <Filter>Resource Files\numbers</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\deathSoundEffect.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\passEffect.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
   </ItemGroup>
 </Project>

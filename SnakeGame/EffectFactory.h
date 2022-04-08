@@ -5,9 +5,10 @@
 #include "Point.h"
 #include <windows.h>
 #include <mmsystem.h>
+#include <mutex>
 using namespace std;
 
-void deadEffect(const Snake& snake);
+void deadEffect(const Snake& snake, const char* names, const int& size);
 void passGateEffect(const Snake& snake);
 //void winEffect();
 //void lostEffect();

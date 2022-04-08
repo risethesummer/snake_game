@@ -1,4 +1,5 @@
 ﻿#include "GamePlay.h"
+#include "EffectFactory.h"
 using namespace std;
 
 //User input (slide trang 12), pause, exit
@@ -10,6 +11,9 @@ int main()
 {
 	fixConsoleWindow();
 	startGame(1, 0);
-
-	return 1;
+	//Snake n;
+	//deadEffect(n);
+	//passGateEffect(n);
+	
+	return 0;
 }

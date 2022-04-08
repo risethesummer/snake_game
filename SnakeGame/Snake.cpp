@@ -1,6 +1,5 @@
 #include "Snake.h"
 
-
 Node* getNode(const Point& p)
 {
 	Node* newNode = new Node;
@@ -59,6 +58,14 @@ void freeSnake(Snake& snake)
 		delete temp;
 		temp = snake.head;
 	}
+}
+
+int count(const Snake& snake)
+{
+	int c = 0;
+	for (Node* current = snake.head; current; current = current->next)
+		c++;
+	return c;
 }
 
 void drawSnake(const Snake& snake, const char names[], const int& namesSize, const int& color)

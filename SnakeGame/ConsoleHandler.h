@@ -82,6 +82,6 @@ vector<Point> drawAndGetPoints(const UIComponent& component);
  * @param endAnchor Bot right anchor of the object.
  * @param color Color of the object (should use colors in the Color.h).
  */
-void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color);
+void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miliDelay = 0);
 
 #endif

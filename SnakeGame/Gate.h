@@ -5,8 +5,8 @@
 
 //---
 //- -
-bool checkGate(const Snake& snake, const Point& gate);
-Point createAndDrawGate(const Snake& snake, int topLeft, int bottomRight);
-bool checkSnakePassGate(const Snake& snake);
-
+bool checkGate(const Snake& snake, const vector<Point>& obtacles, const Point& gate);
+Point* createAndDrawGate(const Snake& snake, const vector<Point>& obtacles, const Point& topLeft, const Point& bottomRight);
+//.......
+//.....
 #endif // GATE_H

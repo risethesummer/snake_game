@@ -7,6 +7,7 @@
 #define GREEN_GREEN 34
 #define RED_RED 68
 #define YELLOW_YELLOW 102
+//TEXTS
 #define WHITE_BLACK 240
 #define WHITE_BLUE 243
 #define WHITE_RED 244
