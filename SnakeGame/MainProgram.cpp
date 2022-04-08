@@ -1,135 +1,27 @@
-﻿#include "ConsoleHandler.h"
-#include <vector>
-#include "Direction.h"
-#include "Snake.h"
-#include "Moving.h"
-#include "Food.h"
-#include <thread>
-#include <stdio.h>
-#include <conio.h>
-#include <string.h>
-#define NAMES "19127652"
-#define NUM_FOOD_EACH_ROUND 4
+﻿#include "GamePlay.h"
 using namespace std;
-
 
 //User input (slide trang 12), pause, exit
 //Gate (tao cong, check ran qua cong), chuyen man
 //menu, save, load
 //hieu ung (EffectFactory), ve man choi
-void pauseGame(HANDLE t)
-{
-	system("cls");
-	TerminateThread(t, 0);
-}
-
-void exitGame(HANDLE t)
-{
-	SuspendThread(t);
-}
-
-void getUserInput(HANDLE t)
-{
-	Direction lock;
-	int temp;
-	while (1) {
-		temp = toupper(_getch());
-		if (temp == 'P')
-			pauseGame(t);
-		else if (temp == 'O') {
-			exitGame(t);
-			return;
-		}
-		if ((temp != 0) && (temp == UP || temp == RIGHT || temp == LEFT || temp == DOWN)) {
-			if (temp == UP)
-				lock = DOWN;
-			else if (temp == DOWN)
-				lock = UP;
-			else if (temp == LEFT)
-				lock = RIGHT;
-			else lock = LEFT;
-		}
-		else {
-			exitGame(t);
-			return;
-		}
-	}
-}
-//int level, int score, 
-void startGame() {
-	Direction lockDirection;
-	bool isAlive = true;
-	bool isPause = false;
-	int currentLevel = 0;
-	int currentScore = 0;
-	int speed = 1;
-	Snake snake;
-	Point middle = { 20, 20 };
-	//Bat dau man (for loop)
-	for (int i = 0; i < 8; i++)
-	{
-		addLast(snake, middle);
-		middle.x++;
-	}
-	UIComponent* board = loadComponent("board_level_1.txt");
-	Point* gate = nullptr;
-	Point bottomRight = board->anchor + Point{ (short)board->content[0].length(), (short)board->content.size() };
-	vector<Point> table = drawAndGetPoints(*board);
-	Point food = createFood(snake, board->anchor, bottomRight);
-	thread t1(moveSnake, snake, lockDirection);
-	HANDLE handle_t1 = t1.native_handle();
-	//Used for detecting death
-	while (isAlive)
-	{
-		print(snake.tail->position, '*', WHITE_WHITE, WHITE_BLACK);
-		drawSnake(snake, NAMES, 8);
-		//Neu ma co cong -> check
-		//An cong -> qua man
-		//Xoa di tat ca
-		//Chinh lai kich thuoc thanh 6
-		//Tang toc do
-		if (checkEatFood(snake, food))
-		{
-			print(food, '*', WHITE_WHITE);
-			currentScore++;
-			createFood(snake, board->anchor, bottomRight);
-		}
-
-		Sleep(1000 / speed);
-	}
-	//Ket thuc man
-	delete board;
-	freeSnake(snake);
-	system("cls");
-}
-
-void menu()
-{
-
-}
-
-
-//Level
-//Score
-//Positions
-//
-void save()
-{
-
-}
-
-void load()
-{
-
-}
-
 
 int main()
 {
 	fixConsoleWindow();
-	getUserInput();
-	//Menu
-	//Terminate thread game -> back to menu
-	startGame();
+	startGame(1, 0);
+	//draw(guidePath);
+	//draw(boardPath + "1.txt");
+	//draw(numberPath + to_string(1) + ".txt");
+	//draw(numberPath + to_string(0) + ".txt", drawScoreOffset);
+	//draw(pausePath);
+
+	//Sleep(3000);
+	//drawArea(removeScoreStart, removeScoreEnd, WHITE_WHITE);
+	//draw(numberPath + "3.txt", drawScoreOffset);
+	//drawArea(removeLevelStart, removeLevelEnd, WHITE_WHITE);
+	//draw(numberPath + "0.txt");
+
+	//Sleep(3000);
 	return 1;
 }

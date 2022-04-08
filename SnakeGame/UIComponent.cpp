@@ -2,16 +2,13 @@
 #include <string>
 #include <fstream>
 
-UIComponent* loadComponent(const string& path)
+UIComponent loadComponent(const string& path)
 {
 	ifstream stream(path);
+	UIComponent component;
 	if (stream)
-	{
-		UIComponent* component = new UIComponent();
-		stream >> *component;
-		return component;
-	}
-	return nullptr;
+		stream >> component;
+	return component;
 }
 
 istream& operator>>(istream& stream, UIComponent& component)

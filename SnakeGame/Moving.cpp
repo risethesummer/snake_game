@@ -23,7 +23,7 @@ Point getAddition(Direction dir)
 	return addition;
 }
 
-void moveSnake(Snake snake, Direction dir)
+void moveSnake(Snake& snake, Direction dir)
 {
 	removeLast(snake);
 	addHead(snake, snake.head->position + getAddition(dir));

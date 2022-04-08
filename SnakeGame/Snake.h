@@ -22,7 +22,7 @@ void addHead(Snake& snake, const Point& pos);
 void addLast(Snake& snake, const Point& pos);
 void removeLast(Snake& snake);
 void freeSnake(Snake& snake);
-void drawSnake(const Snake& snake, const char names[], const int& namesSize, const int& color = WHITE_BLACK);
+void drawSnake(const Snake& snake, const char names[], const int& namesSize, const int& color = WHITE_GREEN);
 //void clearSnake(const Snake& snake);
 
 #endif

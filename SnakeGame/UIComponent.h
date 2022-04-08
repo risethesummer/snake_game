@@ -22,7 +22,7 @@ struct UIComponent
 * @param path The path of the file storing the component
 * @return the pointer pointing to the component object (null if could not load the file)
 */
-UIComponent* loadComponent(const string& path);
+UIComponent loadComponent(const string& path);
 
 /**
 * Load a component from a stream

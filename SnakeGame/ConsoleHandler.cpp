@@ -57,24 +57,39 @@ void draw(const UIComponent& component)
 	}
 }
 
+void draw(const string& path, const Point& offset, const int& color)
+{
+	UIComponent comp = loadComponent(path);
+	comp.anchor += offset;
+	if (color != -1)
+		comp.color = color;
+	draw(comp);
+}
+
 vector<Point> drawAndGetPoints(const UIComponent& component)
 {
 	vector<Point> points;
 	Point clone(component.anchor);
 	jump(clone);
 	setTextColor(component.color);
-	for (const string& current : component.content)
+	for (int r = 0; r < component.content.size(); r++)
 	{
-		for (const char& c : current)
+		const string* current = &(component.content[r]);
+		for (int c = 0; c < current->size(); c++)
 		{
 			//Jump the next char
 			clone.x += 1;
+			char ch = (*current)[c];
 			//If not space -> drawing
-			if (!isspace(c))
+			if (!isspace(ch))
 			{
-				cout << c;
-				//Get the drawn point
-				points.push_back(Point{ short(clone.x - 1), clone.y });
+				cout << ch;
+				if (r != 0 
+					&& r != component.content.size() - 1 
+					&& c!= 0 
+					&& c != current->size() - 1)
+					//Get the drawn point
+					points.push_back(Point{ short(clone.x - 1), clone.y });
 			}
 			else
 				jump(clone); //Jump to next if not a char

@@ -8,6 +8,6 @@
 using namespace std;
 
 Point getAddition(Direction dir);
-void moveSnake(Snake snake, Direction dir);
+void moveSnake(Snake& snake, Direction dir);
 
 #endif

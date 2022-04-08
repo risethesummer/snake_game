@@ -140,7 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleHandler.cpp" />
+    <ClCompile Include="Direction.cpp" />
     <ClCompile Include="Food.cpp" />
+    <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="GetUserInput.cpp" />
     <ClCompile Include="MainProgram.cpp" />
     <ClCompile Include="Moving.cpp" />
     <ClCompile Include="Point.cpp" />
@@ -155,7 +158,10 @@
     <ClInclude Include="Direction.h" />
     <ClInclude Include="EffectFactory.h" />
     <ClInclude Include="Food.h" />
+    <ClInclude Include="GamePlay.h" />
     <ClInclude Include="Gate.h" />
+    <ClInclude Include="GetUserInput.h" />
+    <ClInclude Include="KeyMapping.h" />
     <ClInclude Include="Moving.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProcessDead.h" />
@@ -164,7 +170,17 @@
     <ClInclude Include="UIComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="board_level_1.txt" />
+    <Text Include="resources\boards\board_level_1.txt" />
+    <Text Include="resources\boards\board_level_2.txt" />
+    <Text Include="resources\boards\board_level_3.txt" />
+    <Text Include="resources\guides\guide_in_game.txt" />
+    <Text Include="resources\guides\pause_game.txt" />
+    <Text Include="resources\numbers\number_0.txt" />
+    <Text Include="resources\numbers\number_1.txt" />
+    <Text Include="resources\numbers\number_2.txt" />
+    <Text Include="resources\numbers\number_3.txt" />
+    <Text Include="resources\numbers\number_4.txt" />
+    <Text Include="resources\numbers\number_5.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

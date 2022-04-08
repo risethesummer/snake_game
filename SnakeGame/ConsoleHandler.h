@@ -67,6 +67,8 @@ void print(const Point& point, const T& content, const int& color, const int& re
  */
 void draw(const UIComponent& component);
 
+void draw(const string& path, const Point& offset = { 0, 0 }, const int& color = -1);
+
 /**
  * Draw an object at the top left anchor and get every coordinate of the object.
  * @param component The component drawn on the console screen

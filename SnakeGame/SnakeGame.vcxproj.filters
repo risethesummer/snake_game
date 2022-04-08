@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\boards">
+      <UniqueIdentifier>{c13dae83-2919-4d8d-92af-e28a353346b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\guides">
+      <UniqueIdentifier>{5171478a-4730-49a2-b195-17cb4cb21467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\numbers">
+      <UniqueIdentifier>{8b5b60a6-2dd7-406f-82fd-82cd5346da6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainProgram.cpp">
@@ -40,6 +49,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Snake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GetUserInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Direction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,10 +98,49 @@
     <ClInclude Include="Gate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="KeyMapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetUserInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="board_level_1.txt">
-      <Filter>Resource Files</Filter>
+    <Text Include="resources\boards\board_level_1.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\boards\board_level_2.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\boards\board_level_3.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\guides\guide_in_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_1.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_2.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_3.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_4.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_5.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\guides\pause_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_0.txt">
+      <Filter>Resource Files\numbers</Filter>
     </Text>
   </ItemGroup>
 </Project>
