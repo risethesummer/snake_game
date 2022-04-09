@@ -14,17 +14,10 @@ void fixConsoleWindow();
 //Move the console cursor to the specified coordinate
 void jump(const Point& coordinate);
 
-/**
- * Set the text color of the console.
- * @param color Color value (should use colors in the Color.h).
- */
+//Set the text color of the console.
 void setTextColor(const int& color);
 
-/**
- * Print a text at a point.
- * @param point Starting point of the text.
- * @param content Content of the text.
- */
+//Print a text at a point.
 template <class T>
 void print(const Point& point, const T& content)
 {
@@ -32,12 +25,7 @@ void print(const Point& point, const T& content)
 	std::cout << content;
 }
 
-/**
- * Print a text with a color at a point.
- * @param point Starting point of the text.
- * @param content Content of the text.
- * @param color Color of the text (should use colors in the Color.h).
- */
+//Print a text with a color at a point.
 template <class T>
 void print(const Point& point, const T& content, const int& color)
 {
@@ -45,13 +33,7 @@ void print(const Point& point, const T& content, const int& color)
 	print(point, content);
 }
 
-/**
- * Print a text with a color at a point, then recover the console text color.
- * @param point Starting point of the text.
- * @param content Content of the text.
- * @param color Color of the text (should use colors in the Color.h).
- * @param recoverColor Color used to set the console text color after printing the text.
- */
+//Print a text with a color at a point, then recover the console text color.
 template <class T>
 void print(const Point& point, const T& content, const int& color, const int& recoverColor)
 {
@@ -60,28 +42,15 @@ void print(const Point& point, const T& content, const int& color, const int& re
 	setTextColor(recoverColor);
 }
 
-
-/**
- * Draw an object at the top left anchor.
- * @param component The component drawn on the console screen
- */
-void draw(const UIComponent& component);
-
+//Draw an object at the top left anchor.
+void draw(const UIComponent& component, const int& color = -1);
+//Draw an object loaded from the path
 void draw(const string& path, const Point& offset = { 0, 0 }, const int& color = -1);
-
-/**
- * Draw an object at the top left anchor and get every coordinate of the object.
- * @param component The component drawn on the console screen
- * @return every coordinate which the object is drawn on
- */
+//Draw an object at the top left anchor and get every coordinate of the object.
 vector<Point> drawAndGetPoints(const UIComponent& component);
-
-/**
- * Draw an rectangle object starting at the top left anchor (used for deleting an area on screen)
- * @param startAnchor Top left anchor of the object.
- * @param endAnchor Bot right anchor of the object.
- * @param color Color of the object (should use colors in the Color.h).
- */
+//Draw an rectangle object starting at the top left anchor (used for deleting an area on screen)
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miliDelay = 0);
+//Draw bound of an object
+void drawBound(const UIComponent& component, const int& offset, const int& color = YELLOW_YELLOW);
 
 #endif

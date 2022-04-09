@@ -35,11 +35,14 @@ void setTextColor(const int& color)
 	SetConsoleTextAttribute(hConsole, color);
 }
 
-void draw(const UIComponent& component)
+void draw(const UIComponent& component, const int& color)
 {
 	Point clone(component.anchor);
 	jump(clone);
-	setTextColor(component.color);
+	if (color == -1)
+		setTextColor(component.color);
+	else
+		setTextColor(color);
 	for (const string& current : component.content)
 	{
 		for (int i = 0; i < current.length(); i++)
@@ -105,7 +108,7 @@ vector<Point> drawAndGetPoints(const UIComponent& component)
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miniDelay)
 {
 	setTextColor(color);
-	string line = GetCharString(endAnchor.x - startAnchor.x + 4, '*');
+	string line = getCharString(endAnchor.x - startAnchor.x + 4, '*');
 	for (int r = 0; r < endAnchor.y - startAnchor.y + 2; r++)
 	{
 		jump(Point{ short(startAnchor.x - 1), short(startAnchor.y + r - 1) });
@@ -113,4 +116,11 @@ void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color
 		if (miniDelay > 0)
 			this_thread::sleep_for(std::chrono::milliseconds(miniDelay));
 	}
+}
+
+void drawBound(const UIComponent& component, const int& offset, const int& color)
+{
+	vector<string> str = createRectangleContent(component.content, offset);
+	UIComponent drawn = { str, component.anchor - Point {2, 2},  color };
+	draw(drawn);
 }

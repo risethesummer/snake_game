@@ -24,6 +24,5 @@ void removeLast(Snake& snake);
 void freeSnake(Snake& snake);
 int count(const Snake& snake);
 void drawSnake(const Snake& snake, const char names[], const int& namesSize, const int& color = WHITE_GREEN);
-//void clearSnake(const Snake& snake);
 
 #endif

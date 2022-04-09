@@ -8,8 +8,9 @@
 using namespace std;
 
 
-bool checkFood(const Snake& snake, const vector<Point>& obtacles, const Point& food);
-Point createFood(const Snake& snake, const vector<Point>& obtacles, const Point& topLeft, const Point& bottomRight);
+bool checkFood(const Snake& snake, const vector<Point>& obstacles, const Point& food);
+Point* createFood(const Snake& snake, const vector<Point>& obstacles, const Point& topLeft, const Point& bottomRight);
+Point* createFoodAndDraw(const Snake& snake, const vector<Point>& obstacles, const Point& topLeft, const Point& bottomRight);
 bool checkEatFood(const Snake& snake, const Point& food);
 
 #endif

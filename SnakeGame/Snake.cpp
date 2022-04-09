@@ -74,9 +74,3 @@ void drawSnake(const Snake& snake, const char names[], const int& namesSize, con
 	for (Node* current = snake.head; current; current = current->next, i++)
 		print(current->position, names[i % namesSize], color);
 }
-
-//
-//void clearSnake(const Snake& snake)
-//{
-//	drawSnake(snake,)
-//}

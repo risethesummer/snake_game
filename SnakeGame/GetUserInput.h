@@ -8,9 +8,9 @@
 
 using namespace std;
 const vector<int> moveInputs = { ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, 'A', 'W', 'S', 'D' };
-const vector<int> inGameInputs = { ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, 'A', 'W', 'S', 'D', SPACE, ESC };
+const vector<int> inGameInputs = { ARROW_UP, ARROW_DOWN, ARROW_LEFT, ARROW_RIGHT, 'A', 'W', 'S', 'D', SPACE, ESC, TAB };
+const vector<int> menuInputs = { ARROW_UP, ARROW_DOWN, 'W', 'S', ENTER, 'E'};
 
-//
 char getInput(const vector<int>& expexted);
 bool isBelongToInputType(const char& input, const vector<int>& type);
 

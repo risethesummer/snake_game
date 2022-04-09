@@ -151,6 +151,7 @@
     <ClCompile Include="Moving.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="ProcessDead.cpp" />
+    <ClCompile Include="SaveGame.cpp" />
     <ClCompile Include="Snake.cpp" />
     <ClCompile Include="StringUtilities.cpp" />
     <ClCompile Include="UIComponent.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Moving.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="ProcessDead.h" />
+    <ClInclude Include="SaveGame.h" />
     <ClInclude Include="Snake.h" />
     <ClInclude Include="StringUtilities.h" />
     <ClInclude Include="UIComponent.h" />
@@ -179,6 +181,15 @@
     <Text Include="resources\boards\board_level_3.txt" />
     <Text Include="resources\guides\guide_in_game.txt" />
     <Text Include="resources\guides\pause_game.txt" />
+    <Text Include="resources\menu\menu_exit.txt" />
+    <Text Include="resources\menu\menu_load.txt" />
+    <Text Include="resources\menu\menu_settings.txt" />
+    <Text Include="resources\menu\menu_snake_black.txt" />
+    <Text Include="resources\menu\menu_snake_green.txt" />
+    <Text Include="resources\menu\menu_snake_more_green.txt" />
+    <Text Include="resources\menu\menu_snake_red.txt" />
+    <Text Include="resources\menu\menu_start.txt" />
+    <Text Include="resources\menu\save\menu_save_title.txt" />
     <Text Include="resources\numbers\number_0.txt" />
     <Text Include="resources\numbers\number_1.txt" />
     <Text Include="resources\numbers\number_2.txt" />

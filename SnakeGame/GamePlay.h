@@ -8,10 +8,12 @@
 #include "Gate.h"
 #include "GetUserInput.h"
 #include "EffectFactory.h"
+#include "SaveGame.h"
 #include "Direction.h"
 #include "Snake.h"
 #include "Moving.h"
 #include "Food.h"
+#include "ProcessDead.h"
 #include <thread>
 #include <stdio.h>
 #include "KeyMapping.h"
@@ -32,9 +34,9 @@ const string guidePath = "resources/guides/guide_in_game.txt";
 const string numberPath = "resources/numbers/number_";
 const string pausePath = "resources/guides/pause_game.txt";
 
-void startGame(int level, int score, const vector<Point>& positions, const Direction& lockDirection);
-void gameProcessing(int level, int score, const vector<Point>& positions, const Direction& lockDirection, const bool& isPaused, bool& isEnded);
-void userGameInput(Direction& lock, bool& pause, bool& isEnded);
+void startGame(const int& level, const int& score, const int& lives, const vector<Point>& positions, const Direction& lockDirection);
+void gameProcessing(int level, int score, int lives, const vector<Point>& positions, const Direction& lockDirection, const bool& isPaused, bool& isEnded, bool& isSaved);
+void userGameInput(Direction& lock, bool& pause, bool& isEnded, bool& isSaved);
 //level score lives direction
 //size of positions
 //pos 0.x pos 0. y
@@ -65,11 +67,10 @@ void loadGame();
 //report: 
 // 1.
 // algs: move, dead, create food, gate; 
-// data structure: snake (2 ways linked list), wall and obtacles (vector points);  (TRIET)
+// data structure: snake (2 ways linked list), wall and obstacles (vector points);  (TRIET)
 // 2.
 // flow: 2 flows (snake, inputs) -> stack (ve flow chart), sub-modules (functions call functions)); (DUONG)
 
 //qua man, chet (mang: lives) (THUAN)
-void saveGame();
 
 #endif

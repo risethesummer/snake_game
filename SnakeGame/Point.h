@@ -13,13 +13,9 @@ struct Point
 };
 
 
-/**
-* Load a point from a stream
-* @param stream The stream used to load
-* @param point The point keeping loaded data
-* @param the stream used to load the point
-*/
+//Load a point from a stream
 istream& operator>>(istream& stream, Point& point);
+ostream& operator<<(ostream& stream, Point& point);
 bool operator==(const Point& a, const Point& b);
 bool operator!=(const Point& a, const Point& b);
 Point operator+(const Point& a, const Point& b);

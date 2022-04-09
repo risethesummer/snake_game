@@ -1,10 +1,12 @@
 #ifndef COLOR_H
 #define COLOR_H
 
+//ICONS
 #define BLACK_BLACK 0
 #define WHITEGRAY_WHITEGRAY 119
 #define GRAY_GRAY 136
 #define GREEN_GREEN 34
+#define MORE_GREEN_GREEN 170
 #define RED_RED 68
 #define YELLOW_YELLOW 102
 //TEXTS

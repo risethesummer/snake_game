@@ -7,8 +7,8 @@ using namespace std;
 
 bool isTouchWall(const Snake& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor);
 bool isSelfBite(const Snake& snake);
-bool isCollideWithObtacles(const Snake& snake, const vector<vector<Point>>& obtacles);
+bool isCollideWithObstacles(const Snake& snake, const vector<Point>& obstacles);
 bool isDead(const Snake& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor,
-	const vector<vector<Point>>& obtacles);
+	const vector<Point>& obstacles);
 
 #endif

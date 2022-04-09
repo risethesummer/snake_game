@@ -1,6 +1,6 @@
 #include "StringUtilities.h"
 
-int GetMaxLength(const vector<string>& strs)
+int getMaxLength(const vector<string>& strs)
 {
 	int cur = strs[0].length();
 	for (int i = 1; i < strs.size(); i++)
@@ -11,7 +11,7 @@ int GetMaxLength(const vector<string>& strs)
 	return cur;
 }
 
-string GetCharString(const int& size, const char& ch)
+string getCharString(const int& size, const char& ch)
 {
 	string str;
 	for (int i = 0; i < size; i++)
@@ -19,10 +19,10 @@ string GetCharString(const int& size, const char& ch)
 	return str;
 }
 
-vector<string> CreateRectangleContent(const vector<string>& content, const Point& offset)
+vector<string> createRectangleContent(const vector<string>& content, const int& offset = 2)
 {
-	int width = GetMaxLength(content) + offset.x * 2;
-	int height = content.size() + offset.y * 2;
+	int width = getMaxLength(content) + 2 * offset;
+	int height = content.size() + 2 * offset;
 	vector<string> recContent;
 	recContent.resize(height);
 	for (string& row : recContent)

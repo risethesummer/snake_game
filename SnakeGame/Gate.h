@@ -3,10 +3,8 @@
 #include "Point.h"
 #include "Snake.h"
 
-//---
-//- -
-bool checkGate(const Snake& snake, const vector<Point>& obtacles, const Point& gate);
-Point* createAndDrawGate(const Snake& snake, const vector<Point>& obtacles, const Point& topLeft, const Point& bottomRight);
-//.......
-//.....
+void drawGate(const Point& centerPoint);
+bool checkGate(const Snake& snake, const vector<Point>& obstacles, const Point& gate);
+Point* createGate(const Snake& snake, const vector<Point>& obstacles, const Point& topLeft, const Point& bottomRight);
+Point* createGateAndDraw(const Snake& snake, const vector<Point>& obstacles, const Point& topLeft, const Point& bottomRight);
 #endif // GATE_H

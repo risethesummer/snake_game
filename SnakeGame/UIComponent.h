@@ -16,20 +16,10 @@ struct UIComponent
 	int color;
 };
 
-/**
-* Load a component from disk
-* 
-* @param path The path of the file storing the component
-* @return the pointer pointing to the component object (null if could not load the file)
-*/
+//Load a component from disk
 UIComponent loadComponent(const string& path);
 
-/**
-* Load a component from a stream
-* @param stream The stream used to load
-* @param component The component keeping the loaded data
-* @param the stream used to load the component
-*/
+//Load a component from a stream
 istream& operator>>(istream& stream, UIComponent& component);
 
 #endif
