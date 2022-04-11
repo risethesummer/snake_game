@@ -1,13 +1,13 @@
 #include "Gate.h"
 
-void drawGate(const Point& centerPoint)
+void drawGate(const Point& centerPoint, const int& color)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = -1; i < 2; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = -1; j < 2; j++)
 		{
-			if (j != 1 || i == 0)
-				print(centerPoint + Point{(short)i, (short)j}, '*', GREEN_GREEN);
+			if (j != 0 || i == -1)
+				print(centerPoint + Point{(short)j, (short)i}, '*', color);
 		}
 	}
 }
@@ -21,10 +21,12 @@ bool checkGate(const Snake& snake, const vector<Point>& obstacles, const Point& 
 		if (vectorDiff.x < 2 && vectorDiff.y < 2)
 			return true;
 	}
+
+	Point inDoor = { gate.x, gate.y + 2 };
 	for (const Point& o : obstacles)
 	{
 		vectorDiff = { (short)abs(o.x - gate.x),(short)abs(o.y - gate.y) };
-		if (vectorDiff.x < 2 && vectorDiff.y < 2)
+		if ((vectorDiff.x < 2 && vectorDiff.y < 2) || inDoor == o)
 			return true;
 	}
 	return false;
@@ -40,6 +42,10 @@ Point* createGate(const Snake& snake, const vector<Point>& obstacles, const Poin
 	{
 		gate.x = (rand() % (bottomRight.x - topLeft.x - 3)) + topLeft.x + 2;
 		gate.y = (rand() % (bottomRight.y - topLeft.y - 3)) + topLeft.y + 2;
+		if (gate.y + 2 == bottomRight.y)
+		{
+			int a = 5;
+		}
 		
 	} while (checkGate(snake, obstacles, gate));
 	return new Point(gate);
@@ -50,4 +56,8 @@ Point* createGateAndDraw(const Snake& snake, const vector<Point>& obstacles, con
 	Point* gate = createGate(snake, obstacles, topLeft, bottomRight);
 	drawGate(*gate);
 	return gate;
+}
+void removeGate(const Point& centerPoint)
+{
+	drawGate(centerPoint, WHITE_WHITE);
 }

@@ -1,54 +1,97 @@
 #include "SaveGame.h"
 
-void saveGame(const int& level, const int& score, const int& lives, const Snake& snake, const Direction& lockDirection)
+void saveGame(Data& data)
+{
+	Menu slots = showSlots();
+	int slot = AUTO_SLOT;
+	do
+	{
+		slot = interact(slots);
+	} while (slot == AUTO_SLOT);
+	if (slot == MAX_SHOW)
+		return;
+	saveGameWithoutInteracting(data, slot);
+}
+
+void saveGameWithoutInteracting(Data& data, const int& slot)
+{
+	tm newtime;
+	time_t now = time(0);
+	auto tm = localtime_s(&newtime, &now);
+	std::ostringstream oss;
+	oss << std::put_time(&newtime, "%d/%m/%Y %H:%M:%S");
+	string timeStr = oss.str();
+	ofstream stream("saves/save_slot_" + to_string(slot) + ".dat");
+	SavedData save;
+	save.data = data;
+	strcpy_s(save.date, TIME_LENGTH + 1, timeStr.c_str());
+	stream << save;
+}
+
+Menu showSlots(const int& offsetX, const int& savedColor, const int& noColor)
 {
 	ifstream stream;
-	string path;
 	Menu slots;
 	slots.offset = 2;
-	string savedTime;
-	int savedLev, savedScore, savedLives;
-	Point starAnchor = { 30, 15 };
+	Point starAnchor = Point{ (short)(8 + offsetX), 10 };
+	SavedData loaded;
+	string title;
 	for (int i = 0; i < MAX_SHOW; i++)
 	{
-		path = "saves/save_slot_" + to_string(i) + ".txt";
-		stream.open(path);
+		stream.open("saves/save_slot_" + to_string(i) + ".dat");
+		title = i == AUTO_SLOT ? "Auto saved: " : to_string(i + 1);
 		if (stream.good())
 		{
-			getline(stream, savedTime);
-			stream >> savedLev >> savedScore >> savedLives;
-			slots.components.push_back({ {to_string(i) + ": " + savedTime, "Level = " + to_string(savedLev) + ", Score = " + to_string(savedScore) + ", Lives = " + to_string(savedLives)}, starAnchor, WHITE_RED });
+			stream >> loaded;
+			Data data = loaded.data;
+			slots.components.push_back(
+				UIComponent{
+					{
+						title + loaded.date,
+						"Mode: " + modeToString(data.mode), 
+						"Level = " + to_string(data.level) + ", Score = " + to_string(data.score) + ", Lives = " + to_string(data.lives)
+					}, 
+					starAnchor, 
+					savedColor});
 		}
 		else
-			slots.components.push_back({ {to_string(i) + ": The slot has no data"}, starAnchor, WHITE_BLACK });
+			slots.components.push_back({ {title + ": The slot has no data"}, starAnchor, noColor });
 		stream.close();
-		if (i == MAX_SHOW / 2)
+		if ((i + 1) % MAX_SHOW_ROW == 0)
 		{
-			starAnchor.y = 15;
+			starAnchor.y = 10;
 			starAnchor.x += 40;
 		}
 		else
 		{
-			starAnchor.y += 4;
+			starAnchor.y += 6;
 		}
 	}
 	slots.components.push_back({ {"Back to the game"}, starAnchor, WHITE_BLACK });
-
-	draw("resources/menu/save/menu_save_title.txt");
+	UIComponent saveTitles = loadComponent("resources/menu/save/menu_save_title.txt");
+	saveTitles.anchor.x += offsetX;
+	draw(saveTitles);
 	show(slots);
-	int slot = interact(slots);
+	return slots;
+}
 
-	if (slot == MAX_SHOW)
-		return;
-
-	ofstream savedStream("saves/save_slot_" + to_string(slot) + ".txt");
-
-	tm newtime;
-	time_t now = time(0);
-	auto tm = localtime_s(&newtime, &now);
-	savedStream << std::put_time(&newtime, "%d/%m/%Y %H:%M:%S") << '\n';
-	savedStream << level << ' ' << score << ' ' << lives << ' ' << lockDirection << '\n';
-	savedStream << count(snake) << '\n';
-	for (Node* current = snake.head; current; current = current->next)
-		savedStream << current->position << '\n';
+bool loadGame(Data& data)
+{
+	Menu slots = showSlots(20, WHITE_GREEN, WHITE_RED);
+	SavedData loaded;
+	ifstream stream;
+	while (true)
+	{
+		int slot = interact(slots);
+		if (slot == MAX_SHOW)
+			return false;
+		stream.open("saves/save_slot_" + to_string(slot) + ".dat");
+		if (stream.good())
+		{
+			stream >> loaded;
+			data = loaded.data;
+			break;
+		}
+	}
+	return true;
 }

@@ -43,14 +43,16 @@ void print(const Point& point, const T& content, const int& color, const int& re
 }
 
 //Draw an object at the top left anchor.
-void draw(const UIComponent& component, const int& color = -1);
+void draw(const UIComponent& component, const int& color = -1, const long& miniDelay = 0);
 //Draw an object loaded from the path
 void draw(const string& path, const Point& offset = { 0, 0 }, const int& color = -1);
 //Draw an object at the top left anchor and get every coordinate of the object.
-vector<Point> drawAndGetPoints(const UIComponent& component);
+vector<Point> getInsidePoints(const UIComponent& component);
 //Draw an rectangle object starting at the top left anchor (used for deleting an area on screen)
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miliDelay = 0);
 //Draw bound of an object
 void drawBound(const UIComponent& component, const int& offset, const int& color = YELLOW_YELLOW);
+void drawSroll(const UIComponent& component, const long& delay);
+void clearConsole();
 
 #endif

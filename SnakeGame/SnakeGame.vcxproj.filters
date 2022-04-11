@@ -34,6 +34,18 @@
     <Filter Include="Resource Files\menu\save">
       <UniqueIdentifier>{e246a6fa-39a5-45bb-9567-4a01821a22ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\menu\modes">
+      <UniqueIdentifier>{037dda84-a4ed-4cf5-97ec-8950e27c4d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\about">
+      <UniqueIdentifier>{19c2bc2d-e383-465b-82cd-feca9f0482d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\outro">
+      <UniqueIdentifier>{e6eb1b8e-9573-4587-9022-e27b62da0673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\result">
+      <UniqueIdentifier>{8fb0009e-4997-43fa-8454-b76c8e354b87}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainProgram.cpp">
@@ -82,6 +94,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SaveGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SavedData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -137,6 +155,12 @@
     <ClInclude Include="SaveGame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SavedData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\boards\board_level_1.txt">
@@ -172,32 +196,71 @@
     <Text Include="resources\numbers\number_0.txt">
       <Filter>Resource Files\numbers</Filter>
     </Text>
-    <Text Include="resources\menu\menu_exit.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_load.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_settings.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_snake_black.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_snake_green.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_snake_more_green.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_snake_red.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
-    <Text Include="resources\menu\menu_start.txt">
-      <Filter>Resource Files\menu\main</Filter>
-    </Text>
     <Text Include="resources\menu\save\menu_save_title.txt">
       <Filter>Resource Files\menu\save</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_exit.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_load.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_settings.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_black.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_green.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_more_green.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_red.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_start.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_easy.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_hard.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_normal.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_title.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\about\about_exit.txt">
+      <Filter>Resource Files\menu\about</Filter>
+    </Text>
+    <Text Include="resources\menu\about\about_title.txt">
+      <Filter>Resource Files\menu\about</Filter>
+    </Text>
+    <Text Include="resources\guides\stats_in_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_exit.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_for.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_playing.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_thanks.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_dead.txt">
+      <Filter>Resource Files\menu\result</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

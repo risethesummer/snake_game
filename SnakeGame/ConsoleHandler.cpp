@@ -35,7 +35,7 @@ void setTextColor(const int& color)
 	SetConsoleTextAttribute(hConsole, color);
 }
 
-void draw(const UIComponent& component, const int& color)
+void draw(const UIComponent& component, const int& color, const long& miniDelay)
 {
 	Point clone(component.anchor);
 	jump(clone);
@@ -58,49 +58,39 @@ void draw(const UIComponent& component, const int& color)
 		clone.y += 1;
 		clone.x = component.anchor.x;
 		jump(clone);
+		if (miniDelay)
+			this_thread::sleep_for(std::chrono::milliseconds(miniDelay));
 	}
 }
 
 void draw(const string& path, const Point& offset, const int& color)
 {
 	UIComponent comp = loadComponent(path);
-	comp.anchor += offset;
+	if (offset.x != 0 && offset.y != 0)
+		comp.anchor = offset;
 	if (color != -1)
 		comp.color = color;
 	draw(comp);
 }
 
-vector<Point> drawAndGetPoints(const UIComponent& component)
+vector<Point> getInsidePoints(const UIComponent& component)
 {
 	vector<Point> points;
-	Point clone(component.anchor);
-	jump(clone);
-	setTextColor(component.color);
-	for (int r = 0; r < component.content.size(); r++)
+	const Point& anchor = component.anchor;
+	for (int r = 1; r < component.content.size() - 1; r++)
 	{
 		const string* current = &(component.content[r]);
-		for (int c = 0; c < current->size(); c++)
+		for (int c = 1; c < current->size() - 1; c++)
 		{
 			//Jump the next char
-			clone.x += 1;
 			char ch = (*current)[c];
 			//If not space -> drawing
 			if (!isspace(ch))
 			{
-				cout << ch;
-				if (r != 0 
-					&& r != component.content.size() - 1 
-					&& c!= 0 
-					&& c != current->size() - 1)
-					//Get the drawn point
-					points.push_back(Point{ short(clone.x - 1), clone.y });
+				//Get the drawn point
+				points.push_back(Point{ (short)(anchor.x + c), (short)(anchor.y + r) });
 			}
-			else
-				jump(clone); //Jump to next if not a char
 		}
-		clone.y += 1;
-		clone.x = component.anchor.x;
-		jump(clone);
 	}
 	return points;
 }
@@ -108,12 +98,12 @@ vector<Point> drawAndGetPoints(const UIComponent& component)
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miniDelay)
 {
 	setTextColor(color);
-	string line = getCharString(endAnchor.x - startAnchor.x + 4, '*');
-	for (int r = 0; r < endAnchor.y - startAnchor.y + 2; r++)
+	string line = getCharString(endAnchor.x - startAnchor.x + 1, '*');
+	for (int r = 0; r < endAnchor.y - startAnchor.y + 1; r++)
 	{
-		jump(Point{ short(startAnchor.x - 1), short(startAnchor.y + r - 1) });
+		jump(Point{ startAnchor.x, short(startAnchor.y + r) });
 		cout << line;
-		if (miniDelay > 0)
+		if (miniDelay)
 			this_thread::sleep_for(std::chrono::milliseconds(miniDelay));
 	}
 }
@@ -123,4 +113,52 @@ void drawBound(const UIComponent& component, const int& offset, const int& color
 	vector<string> str = createRectangleContent(component.content, offset);
 	UIComponent drawn = { str, component.anchor - Point {2, 2},  color };
 	draw(drawn);
+}
+
+void drawSroll(const UIComponent& component, const long& delay)
+{
+	Point clone(component.anchor);
+	const int printRow = 47;
+	int endNow = printRow;
+	const vector<string>& content = component.content;
+	const int size = content.size();
+	setTextColor(GREEN_GREEN);
+	while (endNow < size)
+	{
+		for (int i = endNow - printRow; i < endNow; i++)
+		{
+			const string& current = content[i];
+			for (int j = 0; j < current.length(); j++)
+			{
+				const char& c = current[j];
+				//Jump the next char
+				clone.x += 1;
+				//If not space -> drawing
+				if (!isspace(c))
+					cout << c;
+				else
+					jump(clone); //Jump to next if not a char
+			}
+			clone.y += 1;
+			clone.x = component.anchor.x;
+			jump(clone);
+		}
+		clone = component.anchor;
+
+		this_thread::sleep_for(std::chrono::milliseconds(delay));
+
+		for (int i = endNow - printRow; i < endNow; i++)
+		{
+			print(clone, content[i], WHITE_WHITE, GREEN_GREEN);
+			clone.y++;
+		}
+		clone.y = component.anchor.y;
+
+		endNow++;
+	}
+}
+
+void clearConsole()
+{
+	drawArea({ 0, 0 }, { 163, 50 }, WHITE_WHITE);
 }

@@ -10,7 +10,12 @@ using namespace std;
 
 void deadEffect(const Snake& snake, const char* names, const int& size);
 void passGateEffect(const Snake& snake);
-//void winEffect();
-//void lostEffect();
+void winEffect();
+void deadEffect();
+void eatFoodEffect();
+void selectFunctionEffect();
+void switchFunctionEffect();
+void pauseEffect();
+void exitEffect();
 
 #endif

@@ -60,6 +60,23 @@ void freeSnake(Snake& snake)
 	}
 }
 
+void removeLast(Snake& snake, const int& keep)
+{
+	int removeCount = count(snake) - keep;
+	for (int i = 0; i < removeCount; i++)
+		removeLast(snake);
+}
+
+void resetSnake(Snake& snake, const Point& start, const Point& offset)
+{
+	Point currentPoint = start;
+	for (Node* current = snake.tail; current; current = current->previous)
+	{
+		current->position = currentPoint;
+		currentPoint += offset;
+	}
+}
+
 int count(const Snake& snake)
 {
 	int c = 0;
@@ -72,5 +89,26 @@ void drawSnake(const Snake& snake, const char names[], const int& namesSize, con
 {
 	int i = 0;
 	for (Node* current = snake.head; current; current = current->next, i++)
+	{
+		int c = i % namesSize;
 		print(current->position, names[i % namesSize], color);
+	}
+}
+
+ifstream& operator>>(ifstream& stream, Snake& snake)
+{
+	Point p;
+	while (!stream.eof())
+	{
+		stream.read((char*)&p, sizeof(Point));
+		addLast(snake, p);
+	}
+	return stream;
+}
+
+ofstream& operator<<(ofstream& stream, const Snake& snake)
+{
+	for (Node* current = snake.head; current; current = current->next)
+		stream.write((char*)&current->position, sizeof(Point));
+	return stream;
 }

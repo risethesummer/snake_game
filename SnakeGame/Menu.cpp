@@ -1,4 +1,7 @@
 #include "Menu.h"
+#include <chrono>
+#include <thread>
+#include "EffectFactory.h"
 
 const UIComponent* getCurrentShow(const Menu& menu)
 {
@@ -14,6 +17,20 @@ Menu loadMenu(const vector<string>& paths)
 	return menu;
 }
 
+BorderMenu loadMenu(const string& titlePath, const vector<string>& paths)
+{
+	BorderMenu menu;
+	menu.title = loadComponent(titlePath);
+	menu.choices = loadMenu(paths);
+	return menu;
+}
+
+void show(const BorderMenu& menu)
+{
+	draw(menu.title);
+	show(menu.choices);
+}
+
 void show(const Menu& menu)
 {
 	showNotInteract(menu);
@@ -24,6 +41,15 @@ void showNotInteract(const Menu& menu)
 {
 	for (UIComponent c : menu.components)
 		draw(c);
+}
+
+void showNotInteract(const Menu& menu, const int& delay)
+{
+	for (UIComponent c : menu.components)
+	{
+		draw(c);
+		this_thread::sleep_for(std::chrono::milliseconds(delay));
+	}
 }
 
 void hide(const Menu& menu)
@@ -51,6 +77,7 @@ int interact(Menu& menu)
 			break;
 		case 'E':
 		case ENTER:
+			selectFunctionEffect();
 			return menu.currentShow;
 		}
 	}
@@ -59,8 +86,8 @@ int interact(Menu& menu)
 
 void switchComponent(Menu& menu, const int& off)
 {
+	switchFunctionEffect();
 	drawBound(*getCurrentShow(menu), menu.offset, WHITE_WHITE);
-
 	int newPos = menu.currentShow + off;
 	vector<UIComponent>* comps = &menu.components;
 	//Out of top

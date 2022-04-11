@@ -4,38 +4,103 @@
 #include "SaveGame.h"
 using namespace std;
 
-//User input (slide trang 12), pause, exit
-//Gate (tao cong, check ran qua cong), chuyen man
-//menu, save, load
-//hieu ung (EffectFactory), ve man choi
+
+void playGame();
 
 int main()
 {
 	fixConsoleWindow();
-	//startGame(1, 0);
-	//Snake n;
-	//deadEffect(n);
-	//passGateEffect(n);
+	Data d;
+	d.mode = HARD;
+	d.level = 3;
+	d.score = 4;
+	startGame(d);
+	//playGame();
+	//winEffect();
+}
 
-	//Menu menu = loadMenu({ "resources/menu/menu_start.txt",
-	//	"resources/menu/menu_load.txt",
-	//	"resources/menu/menu_settings.txt",
-	//	"resources/menu/menu_exit.txt" });
-	//show(menu);
+void playGame()
+{
+	fixConsoleWindow();
 
-	//Menu firstMenu = loadMenu({
-	//	"resources/menu/menu_snake_green.txt",
-	//	"resources/menu/menu_snake_black.txt",
-	//	"resources/menu/menu_snake_more_green.txt",
-	//	"resources/menu/menu_snake_red.txt"});
-	//showNotInteract(firstMenu);
+	Menu firstMenu = loadMenu({
+		"resources/menu/main/menu_snake_green.txt",
+		"resources/menu/main/menu_snake_black.txt",
+		"resources/menu/main/menu_snake_more_green.txt",
+		"resources/menu/main/menu_snake_red.txt" });
 
-	//int choice = interact(menu);
+	Menu functions = loadMenu({ 
+		"resources/menu/main/menu_start.txt",
+		"resources/menu/main/menu_load.txt",
+		"resources/menu/main/menu_settings.txt",
+		"resources/menu/main/menu_exit.txt" });
 
-	//startGame(1, 1, {}, RIGHT);
+	BorderMenu modes = loadMenu("resources/menu/modes/mode_title.txt", {
+		"resources/menu/modes/mode_easy.txt",
+		"resources/menu/modes/mode_normal.txt",
+		"resources/menu/modes/mode_hard.txt",
+		"resources/menu/modes/mode_exit.txt"});
 
-	Snake s;
-	saveGame(1, 1, 1, s, LEFT);
+	Menu outro = loadMenu({
+		"resources/menu/outro/outro_thanks.txt",
+		"resources/menu/outro/outro_for.txt",
+		"resources/menu/outro/outro_playing.txt"
+		});
 
-	return 0;
+	BorderMenu about = loadMenu("resources/menu/about/about_title.txt", {"resources/menu/about/about_exit.txt"});
+	Data data;
+	int choice;
+	while (true)
+	{
+		showNotInteract(firstMenu);
+		show(functions);
+		choice = interact(functions);
+		switch (choice)
+		{
+		case 0:
+		{
+			clearData(data);
+			drawArea({ 62, 1 }, { 120, 48 }, WHITE_WHITE);
+			show(modes);
+			int mode = interact(modes.choices);
+			if (mode == 3)
+			{
+				drawArea({ 58, 1 }, { 120, 50 }, WHITE_WHITE);
+				break;
+			}
+			data.mode = (Mode)mode;
+			clearConsole();
+			startGame(data);
+			clearConsole();
+			break;
+		}
+		case 1:
+		{
+			clearConsole();
+			bool load = loadGame(data);
+			clearConsole();
+			if (load)
+				startGame(data);
+			clearConsole();
+			break;
+		}
+		case 2:
+		{
+			clearConsole();
+			show(about);
+			interact(about.choices);
+			clearConsole();
+			break;
+		}
+		case 3:
+		{
+			thread exitSoundThread(exitEffect);
+			drawArea({ 62, 3 }, { 120, 48 }, WHITE_WHITE);
+			showNotInteract(outro, 1000);
+			print({ 1, 48 }, '*', WHITE_WHITE);
+			exitSoundThread.join();
+			return;
+		}
+		}
+	}
 }

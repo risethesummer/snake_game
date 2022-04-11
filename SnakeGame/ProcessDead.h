@@ -9,6 +9,6 @@ bool isTouchWall(const Snake& snake, const Point& topLeftAnchor, const Point& bo
 bool isSelfBite(const Snake& snake);
 bool isCollideWithObstacles(const Snake& snake, const vector<Point>& obstacles);
 bool isDead(const Snake& snake, const Point& topLeftAnchor, const Point& bottomRightAnchor,
-	const vector<Point>& obstacles);
-
+	const vector<Point>& obstacles, Point* gate);
+bool isCollideWithGate(const Snake& snake, const Point& centerPoint);
 #endif
