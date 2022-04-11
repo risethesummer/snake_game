@@ -42,12 +42,7 @@ void gameProcessing(Data& data, const bool& isPaused, bool& isEnded, bool& isSav
 		//If the initial score is enough for passing the level
 		//Generate a gate instead of a food
 		if (score == NUM_FOOD_EACH_ROUND)
-		{
-			while (true)
-			{
-				gate = createGateAndDraw(snake, obstacles, board.anchor, bottomRight);
-			}
-		}
+			gate = createGateAndDraw(snake, obstacles, board.anchor, bottomRight);
 		else //Generate a food
 			food = createFoodAndDraw(snake, obstacles, board.anchor, bottomRight);
 		waitInGame(board, food, gate, 3, 1000);

@@ -41,12 +41,7 @@ Point* createGate(const Snake& snake, const vector<Point>& obstacles, const Poin
 	do 
 	{
 		gate.x = (rand() % (bottomRight.x - topLeft.x - 3)) + topLeft.x + 2;
-		gate.y = (rand() % (bottomRight.y - topLeft.y - 3)) + topLeft.y + 2;
-		if (gate.y + 2 == bottomRight.y)
-		{
-			int a = 5;
-		}
-		
+		gate.y = (rand() % (bottomRight.y - topLeft.y - 4)) + topLeft.y + 2;
 	} while (checkGate(snake, obstacles, gate));
 	return new Point(gate);
 }
