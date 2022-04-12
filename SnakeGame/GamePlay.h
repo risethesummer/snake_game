@@ -76,10 +76,24 @@ void saveGameAsync(const Data& data, const bool& shouldSave);
 
 //report: 
 // 1.
-// algs: move, dead, create food, gate; 
-// data structure: snake (2 ways linked list), wall and obstacles (vector points);  (TRIET)
+// algs: 
+// move: -> LINH
+// dead: 
+// create food:  -> THUAN 
+// gate/ check (dau trung voi thuc an/ tam cai cong): 
+// data structure: 
+// (TRIET)
+// snake (2 ways linked list): tang hieu khi addHead, addLast, removeLast (O(1)), vi them/bot dot con ran thuc hien nhieu
+// wall and obstacles (vector points): tap hop nhieu diem tao thanh vat can, cai tuong thi la trai tren va duoi phai;
 // 2.
-// flow: 2 flows (snake, inputs) -> stack (ve flow chart), sub-modules (functions call functions)); (DUONG)
+// flow: 2 flows (snake, inputs) -> stack (ve flow chart)
+// sub-modules (functions call functions)); -> LINH check
+
+
+//report: today
+//demo: start game, pause/resume, load/save, win, dead, use lives, exit -> DUONG
+//pwp: 
+// 
 
 //qua man, chet (mang: lives) (THUAN)
 

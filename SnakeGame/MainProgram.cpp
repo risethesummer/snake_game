@@ -9,13 +9,14 @@ void playGame();
 
 int main()
 {
-	//fixConsoleWindow();
+	///fixConsoleWindow();
 	//Data d;
 	//d.mode = EASY;
 	//d.level = 3;
 	//d.score = 4;
 	//startGame(d);
 	playGame();
+	//winEffect();
 
 	return 1;
 }
