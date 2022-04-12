@@ -49,7 +49,7 @@ Menu showSlots(const int& offsetX, const int& savedColor, const int& noColor)
 			slots.components.push_back(
 				UIComponent{
 					{
-						title + loaded.date,
+						title + ": " + loaded.date,
 						"Mode: " + modeToString(data.mode), 
 						"Level = " + to_string(data.level) + ", Score = " + to_string(data.score) + ", Lives = " + to_string(data.lives)
 					}, 
