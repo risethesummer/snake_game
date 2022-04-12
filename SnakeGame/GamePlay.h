@@ -6,6 +6,7 @@
 #define SPEED_ECO 300
 #define MAX_LEVEL 4
 #define DEAULT_LENGTH 6
+#define AUTO_SAVE_DELAY 5000
 #include "ConsoleHandler.h"
 #include "Gate.h"
 #include "GetUserInput.h"
@@ -46,6 +47,7 @@ void showWaiting(const int& time, const long& delay);
 void drawNumber(const int& number, const Point& offset);
 void drawStats(const int& level, const int& score, const int& lives);
 int getGeneratedLength(const int& level, const int& score);
+void saveGameAsync(const Data& data, const bool& shouldSave);
 //level score lives direction
 //size of positions
 //pos 0.x pos 0. y

@@ -13,7 +13,7 @@ void saveGame(Data& data)
 	saveGameWithoutInteracting(data, slot);
 }
 
-void saveGameWithoutInteracting(Data& data, const int& slot)
+void saveGameWithoutInteracting(const Data& data, const int& slot)
 {
 	tm newtime;
 	time_t now = time(0);

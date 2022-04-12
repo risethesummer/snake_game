@@ -34,6 +34,10 @@ void gameProcessing(Data& data, const bool& isPaused, bool& isEnded, bool& isSav
 	vector<Point> obstacles = getInsidePoints(board);
 	draw(board, -1, 3);
 	Point bottomRight = board.anchor + Point{ (short)(board.content[0].length() - 1), (short)(board.content.size() - 1)};
+	
+	bool shouldSave = true;
+	thread autoSaveThread(saveGameAsync, cref(data), cref(shouldSave));
+	
 	for (level; level < MAX_LEVEL;)
 	{
 		Point* gate = nullptr;
@@ -203,7 +207,9 @@ void gameProcessing(Data& data, const bool& isPaused, bool& isEnded, bool& isSav
 			break;
 	}
 
-	saveGameWithoutInteracting(data);
+
+	shouldSave = false;
+	autoSaveThread.join();
 	freeSnake(snake);
 }
 
@@ -304,4 +310,13 @@ void drawNumber(const int& number, const Point& offset)
 int getGeneratedLength(const int& level, const int& score)
 {
 	return DEAULT_LENGTH + (level - 1) * NUM_FOOD_EACH_ROUND + score;
+}
+
+void saveGameAsync(const Data& data, const bool& shouldSave)
+{
+	while (shouldSave)
+	{
+		this_thread::sleep_for(std::chrono::milliseconds(AUTO_SAVE_DELAY));
+		saveGameWithoutInteracting(data);
+	}
 }

@@ -50,10 +50,10 @@ void draw(const UIComponent& component, const int& color, const long& miniDelay)
 			//Jump the next char
 			clone.x += 1;
 			//If not space -> drawing
-			if (!isspace(current[i]))
-				cout << current[i];
-			else
+			if (isspace(current[i]))
 				jump(clone); //Jump to next if not a char
+			else
+				cout << current[i];
 		}
 		clone.y += 1;
 		clone.x = component.anchor.x;
@@ -115,46 +115,43 @@ void drawBound(const UIComponent& component, const int& offset, const int& color
 	draw(drawn);
 }
 
-void drawSroll(const UIComponent& component, const long& delay)
+void drawSroll(const vector<UIComponent>& component, const long& delay)
 {
-	Point clone(component.anchor);
-	const int printRow = 47;
-	int endNow = printRow;
-	const vector<string>& content = component.content;
-	const int size = content.size();
-	setTextColor(GREEN_GREEN);
-	while (endNow < size)
+	Point clone({ 0, 0 });
+	jump(clone);
+	const Point& firstAnchor = component[0].anchor;
+	const int row = component[0].content.size();
+	for (int r = firstAnchor.y; r < row + firstAnchor.y; r++)
 	{
-		for (int i = endNow - printRow; i < endNow; i++)
+		clone.y = r;
+		for (int c = 0; c < component.size(); c++)
 		{
-			const string& current = content[i];
-			for (int j = 0; j < current.length(); j++)
+			const Point& anchor = component[c].anchor;
+			const int exactIndex = r - anchor.y;
+			if (r == 14)
+				int a = 5;
+			if (exactIndex < 0 || exactIndex >= component[c].content.size())
+				continue;
+			else
 			{
-				const char& c = current[j];
-				//Jump the next char
-				clone.x += 1;
-				//If not space -> drawing
-				if (!isspace(c))
-					cout << c;
-				else
-					jump(clone); //Jump to next if not a char
+				const string& current = component[c].content[exactIndex];
+				clone.x = anchor.x;
+				jump(clone);
+				setTextColor(component[c].color);
+				for (const char& ch : current)
+				{
+					//Jump the next char
+					clone.x += 1;
+					//If not space -> drawing
+					if (isspace(ch))
+						jump(clone); //Jump to next if not a char
+					else
+						cout << ch;
+				}
+
 			}
-			clone.y += 1;
-			clone.x = component.anchor.x;
-			jump(clone);
 		}
-		clone = component.anchor;
-
 		this_thread::sleep_for(std::chrono::milliseconds(delay));
-
-		for (int i = endNow - printRow; i < endNow; i++)
-		{
-			print(clone, content[i], WHITE_WHITE, GREEN_GREEN);
-			clone.y++;
-		}
-		clone.y = component.anchor.y;
-
-		endNow++;
 	}
 }
 

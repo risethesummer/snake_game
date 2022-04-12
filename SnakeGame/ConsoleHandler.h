@@ -52,7 +52,7 @@ vector<Point> getInsidePoints(const UIComponent& component);
 void drawArea(const Point& startAnchor, const Point& endAnchor, const int& color, const long& miliDelay = 0);
 //Draw bound of an object
 void drawBound(const UIComponent& component, const int& offset, const int& color = YELLOW_YELLOW);
-void drawSroll(const UIComponent& component, const long& delay);
+void drawSroll(const vector<UIComponent>& component, const long& delay);
 void clearConsole();
 
 #endif

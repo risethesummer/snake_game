@@ -262,6 +262,15 @@
     <Text Include="resources\menu\result\result_dead.txt">
       <Filter>Resource Files\menu\result</Filter>
     </Text>
+    <Text Include="resources\menu\result\result_win_green.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win_more_green.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win_red.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Media Include="resources\sounds\deathSoundEffect.wav">

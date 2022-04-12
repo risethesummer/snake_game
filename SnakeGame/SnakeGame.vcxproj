@@ -206,6 +206,9 @@
     <Text Include="resources\menu\outro\outro_thanks.txt" />
     <Text Include="resources\menu\result\result_dead.txt" />
     <Text Include="resources\menu\result\result_win.txt" />
+    <Text Include="resources\menu\result\result_win_green.txt" />
+    <Text Include="resources\menu\result\result_win_more_green.txt" />
+    <Text Include="resources\menu\result\result_win_red.txt" />
     <Text Include="resources\menu\save\menu_save_title.txt" />
     <Text Include="resources\numbers\number_0.txt" />
     <Text Include="resources\numbers\number_1.txt" />

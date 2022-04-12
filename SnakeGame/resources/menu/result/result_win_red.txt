@@ -1,0 +1,41 @@
+93 14 68
+                                  XXXXX        
+                                 XXXXXXX       
+                                XXXXXXXXX      
+                                XXXXXXXXX      
+                                 XXXXXXX       
+                                  XXXXXX       
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+                                               
+  XXXXX                                        
+ XXXXXXX                                 XXXXX 
+XXXXXXXXX                               XXXXXXX
+XXXXXXXXX                               XXXXXXX
+ XXXXXXX                                XXXXXXX
+  XXXXXX                                  XXXX 
+                                               
+                                               
+                                               
+                                               
+             XXXXX                             
+            XXXXXXX                            
+           XXXXXXXXX                           
+           XXXXXXXXX                           
+            XXXXXXX                            
+             XXXXXX                            

@@ -13,7 +13,7 @@
 #include <string>
 
 void saveGame(Data& data);
-void saveGameWithoutInteracting(Data& data, const int& slot = AUTO_SLOT);
+void saveGameWithoutInteracting(const Data& data, const int& slot = AUTO_SLOT);
 Menu showSlots(const int& offsetX = 0, const int& savedColor = WHITE_RED, const int& noColor = WHITE_GREEN);
 bool loadGame(Data& data);
 

@@ -33,17 +33,20 @@ void winEffect()
 {
 	clearConsole();
 	PlaySound(TEXT("resources/sounds/winSound.wav"), NULL, SND_ASYNC);
-	UIComponent win = loadComponent("resources/menu/result/result_win.txt");
+	Menu win = loadMenu({
+		"resources/menu/result/result_win.txt",
+		"resources/menu/result/result_win_green.txt",
+		"resources/menu/result/result_win_more_green.txt",
+		"resources/menu/result/result_win_red.txt" });
 	//draw(win);
-	draw(win, GREEN_GREEN, 150);
-
+	drawSroll(win.components, 150);
 	Menu back = loadMenu({
 		"resources/menu/about/about_exit.txt" });
 	back.components[0].anchor = { 60, 162 };
 	show(back);
 	interact(back);
 	drawArea({ 0, 0 }, { 161, 165 }, WHITE_WHITE);
-	PlaySound(NULL, NULL, SND_ASYNC);
+	//PlaySound(NULL, NULL, SND_ASYNC);
 }
 
 void deadEffect()
