@@ -1,7 +1,9 @@
 #include "SaveGame.h"
+#include "EffectFactory.h"
 
 void saveGame(Data& data)
 {
+	selectFunctionEffect();
 	Menu slots = showSlots();
 	int slot = AUTO_SLOT;
 	do

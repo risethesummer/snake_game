@@ -75,6 +75,16 @@ void pauseEffect()
 	PlaySound(TEXT("resources/sounds/pauseEffect.wav"), NULL, SND_ASYNC);
 }
 
+void resumeEffect()
+{
+	PlaySound(TEXT("resources/sounds/resumeEffect.wav"), NULL, SND_ASYNC);
+}
+
+void endResumeEffect()
+{
+	PlaySound(TEXT("resources/sounds/endResumeEffect.wav"), NULL, SND_ASYNC);
+}
+
 void exitEffect()
 {
 	PlaySound(TEXT("resources/sounds/exitSound.wav"), NULL, SND_SYNC);

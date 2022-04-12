@@ -16,6 +16,8 @@ void eatFoodEffect();
 void selectFunctionEffect();
 void switchFunctionEffect();
 void pauseEffect();
+void endResumeEffect();
+void resumeEffect();
 void exitEffect();
 
 #endif

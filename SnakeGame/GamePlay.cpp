@@ -63,6 +63,7 @@ void gameProcessing(Data& data, const bool& isPaused, bool& isEnded, bool& isSav
 				if (isPaused)
 				{
 					lk.unlock();
+					pauseEffect();
 					draw(pauseComp, RED_RED);
 					std::unique_lock<mutex> pauseLock(pauseGameMutex);
 					//Wait for the pause is false
@@ -202,15 +203,20 @@ void gameProcessing(Data& data, const bool& isPaused, bool& isEnded, bool& isSav
 		}
 
 		//Forces to end by the user
-		std::lock_guard<mutex> lk(endMutex);
+		std::unique_lock<mutex> lk(endMutex);
 		if (isEnded)
+		{
+			lk.unlock();
+			PlaySound(TEXT("resources/sounds/exitSound.wav"), NULL, SND_ASYNC);
 			break;
+		}
 	}
 
 
 	shouldSave = false;
 	autoSaveThread.join();
 	freeSnake(snake);
+	PlaySound(NULL, NULL, SND_ASYNC);
 }
 
 void startGame(Data& data)
@@ -287,9 +293,13 @@ void showWaiting(const int& time, const long& delay)
 	for (int i = time; i > 0; i--)
 	{
 		draw(numberPath + to_string(i) + ".txt", drawWaitOffset, RED_RED);
+		resumeEffect();
+
 		this_thread::sleep_for(std::chrono::milliseconds(delay));
 		drawArea(drawWaitOffset, drawWaitOffset + Point{ 5, 5 }, WHITE_WHITE);
 	}
+
+	endResumeEffect();
 }
 
 void drawStats(const int& level, const int& score, const int& lives)
