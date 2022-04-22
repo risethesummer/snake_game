@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\boards">
+      <UniqueIdentifier>{c13dae83-2919-4d8d-92af-e28a353346b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\guides">
+      <UniqueIdentifier>{5171478a-4730-49a2-b195-17cb4cb21467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\numbers">
+      <UniqueIdentifier>{8b5b60a6-2dd7-406f-82fd-82cd5346da6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\sounds">
+      <UniqueIdentifier>{a44155ee-6bba-4c26-b73f-ecbea7d4a04c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu">
+      <UniqueIdentifier>{5bc0f12c-adce-46d8-b759-e560a9407cf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\main">
+      <UniqueIdentifier>{9af53011-96aa-4585-b905-165bd9d59dca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\save">
+      <UniqueIdentifier>{e246a6fa-39a5-45bb-9567-4a01821a22ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\modes">
+      <UniqueIdentifier>{037dda84-a4ed-4cf5-97ec-8950e27c4d27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\about">
+      <UniqueIdentifier>{19c2bc2d-e383-465b-82cd-feca9f0482d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\outro">
+      <UniqueIdentifier>{e6eb1b8e-9573-4587-9022-e27b62da0673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\menu\result">
+      <UniqueIdentifier>{8fb0009e-4997-43fa-8454-b76c8e354b87}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringUtilities.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UIComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Moving.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProcessDead.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GetUserInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Direction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EffectFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SaveGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SavedData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConsoleHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtilities.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UIComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moving.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessDead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EffectFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Gate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMapping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetUserInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SavedData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\boards\board_level_1.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\boards\board_level_2.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\boards\board_level_3.txt">
+      <Filter>Resource Files\boards</Filter>
+    </Text>
+    <Text Include="resources\guides\guide_in_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_1.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_2.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_3.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_4.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_5.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\guides\pause_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\numbers\number_0.txt">
+      <Filter>Resource Files\numbers</Filter>
+    </Text>
+    <Text Include="resources\menu\save\menu_save_title.txt">
+      <Filter>Resource Files\menu\save</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_exit.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_load.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_settings.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_black.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_green.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_more_green.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_snake_red.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\main\menu_start.txt">
+      <Filter>Resource Files\menu\main</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_easy.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_hard.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_normal.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_title.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\about\about_exit.txt">
+      <Filter>Resource Files\menu\about</Filter>
+    </Text>
+    <Text Include="resources\menu\about\about_title.txt">
+      <Filter>Resource Files\menu\about</Filter>
+    </Text>
+    <Text Include="resources\guides\stats_in_game.txt">
+      <Filter>Resource Files\guides</Filter>
+    </Text>
+    <Text Include="resources\menu\modes\mode_exit.txt">
+      <Filter>Resource Files\menu\modes</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_for.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_playing.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\outro\outro_thanks.txt">
+      <Filter>Resource Files\menu\outro</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_dead.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win_green.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win_more_green.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+    <Text Include="resources\menu\result\result_win_red.txt">
+      <Filter>Resource Files\menu\result</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\deathSoundEffect.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
+    <Media Include="resources\sounds\passEffect.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

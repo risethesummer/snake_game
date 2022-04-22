@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a312c492-48e9-464d-b55e-b249539da645}</ProjectGuid>
+    <RootNamespace>SnakeGame</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="ConsoleHandler.cpp" />
+    <ClCompile Include="Direction.cpp" />
+    <ClCompile Include="EffectFactory.cpp" />
+    <ClCompile Include="Food.cpp" />
+    <ClCompile Include="GamePlay.cpp" />
+    <ClCompile Include="Gate.cpp" />
+    <ClCompile Include="GetUserInput.cpp" />
+    <ClCompile Include="MainProgram.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Mode.cpp" />
+    <ClCompile Include="Moving.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="ProcessDead.cpp" />
+    <ClCompile Include="SavedData.cpp" />
+    <ClCompile Include="SaveGame.cpp" />
+    <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="StringUtilities.cpp" />
+    <ClCompile Include="UIComponent.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="ConsoleHandler.h" />
+    <ClInclude Include="Direction.h" />
+    <ClInclude Include="EffectFactory.h" />
+    <ClInclude Include="Food.h" />
+    <ClInclude Include="GamePlay.h" />
+    <ClInclude Include="Gate.h" />
+    <ClInclude Include="GetUserInput.h" />
+    <ClInclude Include="KeyMapping.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Mode.h" />
+    <ClInclude Include="Moving.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="ProcessDead.h" />
+    <ClInclude Include="SavedData.h" />
+    <ClInclude Include="SaveGame.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="StringUtilities.h" />
+    <ClInclude Include="UIComponent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\boards\board_level_1.txt" />
+    <Text Include="resources\boards\board_level_2.txt" />
+    <Text Include="resources\boards\board_level_3.txt" />
+    <Text Include="resources\guides\guide_in_game.txt" />
+    <Text Include="resources\guides\pause_game.txt" />
+    <Text Include="resources\guides\stats_in_game.txt" />
+    <Text Include="resources\menu\about\about_exit.txt" />
+    <Text Include="resources\menu\about\about_title.txt" />
+    <Text Include="resources\menu\main\menu_exit.txt" />
+    <Text Include="resources\menu\main\menu_load.txt" />
+    <Text Include="resources\menu\main\menu_settings.txt" />
+    <Text Include="resources\menu\main\menu_snake_black.txt" />
+    <Text Include="resources\menu\main\menu_snake_green.txt" />
+    <Text Include="resources\menu\main\menu_snake_more_green.txt" />
+    <Text Include="resources\menu\main\menu_snake_red.txt" />
+    <Text Include="resources\menu\main\menu_start.txt" />
+    <Text Include="resources\menu\modes\mode_easy.txt" />
+    <Text Include="resources\menu\modes\mode_exit.txt" />
+    <Text Include="resources\menu\modes\mode_hard.txt" />
+    <Text Include="resources\menu\modes\mode_normal.txt" />
+    <Text Include="resources\menu\modes\mode_title.txt" />
+    <Text Include="resources\menu\outro\outro_for.txt" />
+    <Text Include="resources\menu\outro\outro_playing.txt" />
+    <Text Include="resources\menu\outro\outro_thanks.txt" />
+    <Text Include="resources\menu\result\result_dead.txt" />
+    <Text Include="resources\menu\result\result_win.txt" />
+    <Text Include="resources\menu\result\result_win_green.txt" />
+    <Text Include="resources\menu\result\result_win_more_green.txt" />
+    <Text Include="resources\menu\result\result_win_red.txt" />
+    <Text Include="resources\menu\save\menu_save_title.txt" />
+    <Text Include="resources\numbers\number_0.txt" />
+    <Text Include="resources\numbers\number_1.txt" />
+    <Text Include="resources\numbers\number_2.txt" />
+    <Text Include="resources\numbers\number_3.txt" />
+    <Text Include="resources\numbers\number_4.txt" />
+    <Text Include="resources\numbers\number_5.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\sounds\deathSoundEffect.wav" />
+    <Media Include="resources\sounds\passEffect.wav" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
